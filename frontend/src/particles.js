@@ -1,7 +1,7 @@
 // useRef allows for the creation of a reference to a DOM element
 import {useRef, useEffect} from "react";
 
-export const userParticleNetwork = () => {
+export const particleNetwork = () => {
     // Create a reference to the canvas element
     const canvasRef = useRef(null);
 
@@ -95,7 +95,7 @@ export const userParticleNetwork = () => {
         // Animation loop
         function animate() {
             requestAnimationFrame(animate);
-            ctx.fillStyle = "black";  // Set the background color to black
+            ctx.fillStyle = "#0E1011F2";  // Set the background color
             ctx.fillRect(0, 0, innerWidth, innerHeight);
 
             for (let i = 0; i < particlesArray.length; i++) {

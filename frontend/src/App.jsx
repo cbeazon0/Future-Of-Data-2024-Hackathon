@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react"
 import "./App.css"
 import axios from "axios"
-import { userParticleNetwork } from "./particles" // Import the particle network
+import Hero from "./Hero"
 
 function App() {
   const [users, setUsers] = useState([]) // Create a state variable to store and change the users array
-  const canvasRef = userParticleNetwork(); // Use the particle network hook
 
   // API calls are asynchronous, so we need to use async/await
   const fetchAPI = async () => {
@@ -24,7 +23,7 @@ function App() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}></canvas>
+      <Hero />
       <div id="content">
         {users.map((user, index) => (
             <div key={index}> 
