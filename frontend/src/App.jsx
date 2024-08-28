@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import "./App.css"
 import axios from "axios"
 import Hero from "./Hero"
+import Header from "./Header"
 
 function App() {
   const [users, setUsers] = useState([]) // Create a state variable to store and change the users array
@@ -23,12 +24,13 @@ function App() {
 
   return (
     <>
+      <Header />
       <Hero />
       <div id="content">
         {users.map((user, index) => (
             <div key={index}> 
               <span>{user}</span>
-              <br></br>
+              <br />
             </div>
         ))}
       </div>
