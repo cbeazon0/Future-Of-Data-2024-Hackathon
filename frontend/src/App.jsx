@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import "./App.css"
 import axios from "axios"
+import Hero from "./Hero"
 
 function App() {
   const [users, setUsers] = useState([]) // Create a state variable to store and change the users array
@@ -22,14 +23,17 @@ function App() {
 
   return (
     <>
-      {users.map((user, index) => (
-          <div key = {index}> 
-            <span>{user}</span>
-            <br></br>
-          </div>
+      <Hero />
+      <div id="content">
+        {users.map((user, index) => (
+            <div key={index}> 
+              <span>{user}</span>
+              <br></br>
+            </div>
         ))}
+      </div>
     </>
-  )
+  );
 }
 
 export default App
