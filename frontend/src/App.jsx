@@ -27,7 +27,7 @@ function App() {
     <>
       <Header />
       <Hero />
-      <Section />
+      {/* <Section /> */}
       {/* <div id="content">
         {users.map((user, index) => (
             <div key={index}> 
