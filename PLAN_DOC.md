@@ -60,3 +60,10 @@ Investments
   - Non-retirement
     - HSA
     - Brokerage
+
+
+## Basic Logic
+
+* Base the emergency fund off the estimated expenses.  
+* If CC_debt == true -> pay off CC debt before investing regardless of rate
+* 
