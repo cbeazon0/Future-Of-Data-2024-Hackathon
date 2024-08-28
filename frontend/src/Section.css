@@ -1,0 +1,56 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    background-color: #0E1011F2;
+    margin-top: 600px;
+}
+
+.sub-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Make the sub-section span the entire width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.text {
+    max-width: 50%;
+    color: white; /* Set text color to white */
+    padding-left: 20px; /* Add padding to the left side of the text */
+}
+
+.text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text p {
+    font-size: 16px;
+}
+
+.image-placeholder {
+    width: 40%;
+    height: 200px;
+    background-color: #E0E0E0;
+    border-radius: 8px;
+    margin-left: 20px; /* Add margin to the left side of the image */
+    margin-right: 20px; /* Add margin to the right side of the image */
+}
+
+@media (max-width: 768px) {
+    .sub-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0; /* Remove left margin for smaller screens */
+        margin-right: 0; /* Remove right margin for smaller screens */
+    }
+}
