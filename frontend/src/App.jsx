@@ -1,17 +1,20 @@
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Button from "./components/Button";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import { Feature1, Feature2 } from "./components/Feature";
+import Testimonial from "./components/Testimonial";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-color-7">Hello, world!</h1>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Button className="mt-10" href="#startnow">
-          Start Now
-        </Button>
-      </div>
+      <Header />
+      <Hero />
+      <Feature1 />
+      <Feature2 />
+      <Testimonial />
+      <Footer />
     </>
   );
-}
+};
 
 export default App;
