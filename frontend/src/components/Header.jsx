@@ -64,7 +64,7 @@ const Header = () => {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="#"
+            href="/form"
             className="text-lg font-semibold leading-6 text-white hover:text-color-8 hover:underline"
           >
             Start Now
@@ -122,7 +122,7 @@ const Header = () => {
                     Who We Are
                   </a>
                   <a
-                    href="#"
+                    href="/form"
                     className="-mx-3 block rounded-lg px-3 py-4 text-3xl font-semibold leading-7 text-white hover:text-color-8 hover:underline"
                   >
                     Start Now
