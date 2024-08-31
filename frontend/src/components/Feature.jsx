@@ -45,7 +45,7 @@ export const Feature1 = () => {
                 </p>
                 <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-n-3 lg:max-w-none">
                   {features.map((feature) => (
-                    <div key={feature.name} className="relative pl-9">
+                    <div key={feature.title} className="relative pl-9">
                       <dt className="inline font-semibold text-white">
                         <feature.icon
                           aria-hidden="true"
