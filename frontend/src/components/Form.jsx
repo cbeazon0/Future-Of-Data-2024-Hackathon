@@ -1,8 +1,37 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { particleNetwork } from "./particles";
 
 const Form = () => {
   const canvasRef = useRef(null);
+  const [formData, setFormData] = useState({
+    age: 0,
+    income: 0,
+    debt: 0,
+    expenses: 0,
+    savings: 0,
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the form from submitting the traditional way
+    try {
+      const response = await fetch("http://localhost:5000/api/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      console.log(result.message); // Handle response from backend
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
   useEffect(() => {
     const cleanup = particleNetwork("#0E1011F2", "#ffffff", canvasRef.current);
@@ -35,56 +64,69 @@ const Form = () => {
             <p className="mb-4">
               Create your account. It's free and only takes a minute!
             </p>
-            <form action="#">
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-5">
                 <input
-                  type="text"
-                  placeholder="Firstname"
+                  type="number"
+                  name="age"
+                  placeholder="Age"
                   className="border border-n-4 py-1 px-2"
+                  onChange={handleChange}
                 />
                 <input
-                  type="text"
-                  placeholder="Lastname"
+                  type="number"
+                  name="income"
+                  placeholder="Income"
                   className="border border-n-4 py-1 px-2"
+                  onChange={handleChange}
                 />
               </div>
-              <div class="mt-5">
+              <div className="mt-5">
                 <input
-                  type="text"
-                  placeholder="Email"
-                  class="border border-gray-400 py-1 px-2 w-full"
+                  type="number"
+                  name="debt"
+                  placeholder="Debt"
+                  className="border border-gray-400 py-1 px-2 w-full"
+                  onChange={handleChange}
                 />
               </div>
-              <div class="mt-5">
+              <div className="mt-5">
                 <input
-                  type="password"
-                  placeholder="Password"
-                  class="border border-gray-400 py-1 px-2 w-full"
+                  type="number"
+                  name="expenses"
+                  placeholder="Expenses"
+                  className="border border-gray-400 py-1 px-2 w-full"
+                  onChange={handleChange}
                 />
               </div>
-              <div class="mt-5">
+              <div className="mt-5">
                 <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  class="border border-gray-400 py-1 px-2 w-full"
+                  type="number"
+                  name="savings"
+                  placeholder="Savings"
+                  className="border border-gray-400 py-1 px-2 w-full"
+                  onChange={handleChange}
                 />
               </div>
-              <div class="mt-5">
-                <input type="checkbox" class="border border-gray-400" />
+              {/* <div className="mt-5">
+                <input type="checkbox" className="border border-gray-400" />
                 <span>
                   I accept the{" "}
-                  <a href="#" class="text-purple-500 font-semibold">
+                  <a href="#" className="text-purple-500 font-semibold">
                     Terms of Use
                   </a>{" "}
                   &{" "}
-                  <a href="#" class="text-purple-500 font-semibold">
+                  <a href="#" className="text-purple-500 font-semibold">
                     Privacy Policy
                   </a>
                 </span>
-              </div>
-              <div class="mt-5">
-                <button class="w-full bg-purple-500 py-3 text-center text-white">
-                  Register Now
+              </div> */}
+              <div className="mt-5">
+                <button
+                  type="submit"
+                  className="w-full bg-purple-500 py-3 text-center text-white"
+                >
+                  Send Data
                 </button>
               </div>
             </form>
