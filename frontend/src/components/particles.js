@@ -13,6 +13,9 @@ export const particleNetwork = (backgroundColor, dotColor, canvas) => {
   // Get the 2D context of the canvas
   const ctx = canvas.getContext("2d");
 
+  // Enabling anti-aliasing by default in canvas
+  ctx.imageSmoothingEnabled = true;
+
   // Function to set the canvas dimensions and reinitialize particles
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -94,10 +97,8 @@ export const particleNetwork = (backgroundColor, dotColor, canvas) => {
     for (let a = 0; a < particlesArray.length; a++) {
       for (let b = a; b < particlesArray.length; b++) {
         const distance =
-          (particlesArray[a].x - particlesArray[b].x) *
-            (particlesArray[a].x - particlesArray[b].x) +
-          (particlesArray[a].y - particlesArray[b].y) *
-            (particlesArray[a].y - particlesArray[b].y);
+          (particlesArray[a].x - particlesArray[b].x) ** 2 +
+          (particlesArray[a].y - particlesArray[b].y) ** 2;
 
         if (distance < (canvas.width / 7) * (canvas.height / 7)) {
           opacityValue = 1 - distance / 20000;
