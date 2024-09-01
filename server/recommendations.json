@@ -2,47 +2,90 @@
     "recommendations": {
         "Budget": {
             "title": "Budget",
-            "longDescription": "Budget friendly options but longer",
-            "shortDescription": "Budget friendly options",
+            "shortDescription": "Here's what we found for you...",
             "resources": {
                 "1": {
-                    "title": "Low Income Budget Template",
-                    "description": "Low Income Budget Template",
-                    "link": "https://www.google.com",
-                    "logic": "budgetFunction1"
+                    "title": "The 50/30/20 Plan",
+                    "description": "The 50/30/20 rule is a simple budgeting method. It suggests spending 50% of your income on essentials like housing and food, 30% on wants such as entertainment, and 20% on savings and debt repayment. This helps you manage your money by balancing needs, wants, and future security.",
+                    "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
+                    "logic": "budgetFunc1" //if they supply detailed info show their actual spending breakdown relative to the 50/30/20 rule
+                                           //if they don't supply detailed info, show a generic pie chart with the 50/30/20 split
+                                           //They should have no debt or very little debt to be presented with this option
+                                           //This should generally be the catchall recommendation
                 },
                 "2": {
-                    "title": "Budget Friendly Option 2",
-                    "description": "Budget friendly option 2",
-                    "link": "https://www.google.com"
+                    "title": "Create a budget to pay off debt",
+                    "description": "Consider methods of budgetting that can help you pay off debt. This can include the snowball method, avalanche method, or the 50/30/20 rule.",
+                    "link": "https://www.lendingtree.com/personal/budget-to-pay-off-debt/",
+                    "logic": "budgetFunc2" //probably cant construct much of a visual here, they need to go elsewhere to see how to budget for debt
+                                           //They should have a somewhat significant amount of debt to be presented with this option
                 },
                 "3": {
-                    "title": "Budget Friendly Option 3",
-                    "description": "Budget friendly option 3",
-                    "link": "https://www.google.com"
+                    "title": "Looking to retire?",
+                    "description": "Investigate the zero-based budgeting method. This method is a way of budgeting where your income minus your expenses equals zero. That's every dollar of your income assigned a job. This method can help you save for retirement.",
+                    "link": "https://www.ramseysolutions.com/budgeting/how-to-make-a-zero-based-budget",
+                    "logic": "budgetFunc3" //income-exp should be zero. use a slider to show how negative or positive they are.
+                                           //They should have a decent amount of income to be presented with this option
+                                           //They should also be old enough to be thinking about retirement
                 }
             }
         },
-        "other": {
-            "title": "other",
-            "longDescription": "other friendly options but longer",
-            "shortDescription": "other friendly options",
+        "Debt": {
+            "title": "Debt",
+            "shortDescription": "Here's what we found for you...",
             "resources": {
                 "1": {
-                    "title": "Low Income Budget Template",
-                    "description": "Low Income Budget Template",
-                    "link": "https://www.google.com",
-                    "logic": "budgetFunction1"
+                    "title": "Paying off your medical debt",
+                    "description": "Medical debt can be overwhelming, but there are resources available to help you manage it. With the information you've given us, we believe you qualify for UNDUE Medical Debt's assistance.",
+                    "link": "https://www.unduemedicaldebt.org/medical-debt-resources/",
+                    "logic": "debtFunction1" //They must be 4x the poverty line or worse and have debt that is 5% or more of their income.
+                                             //Show a pie chart or slider of their debt to income ratio with the 5% threshold highlighted
                 },
                 "2": {
-                    "title": "Budget Friendly Option 2",
-                    "description": "Budget friendly option 2",
-                    "link": "https://www.google.com"
+                    "title": "Paying off your student loans wiht loan forgiveness programs",
+                    "description": "These programs can help you reduce or eliminate your student loan debt. With the information you've given us, we believe you may qualify for the Department of Education's debt relief program.",
+                    "link": "https://studentaid.gov/manage-loans/forgiveness-cancellation/debt-relief-info",
+                    "logic": "debtFunction2" //They must have student loan debt and be under a certain income threshold. Ask if loan has gotten worse or not (if yes then this is the option).
+                                             //Probably can't construct much of a visual here
                 },
                 "3": {
-                    "title": "Budget Friendly Option 3",
-                    "description": "Budget friendly option 3",
-                    "link": "https://www.google.com"
+                    "title": "Paying off you student loans with Income-Driven Repayment",
+                    "description": "You may not qualify for loan forgiveness, but you could benefit from an income-driven repayment plan. This plan can help you manage your student loan debt by adjusting your monthly payments based on your income.",
+                    "link": "https://studentaid.gov/manage-loans/repayment/plans/income-driven",
+                    "logic": "debtFunction3" //They must have student loan debt and be over a certain income threshold.
+                                             //Display their income to debt ratio and show how it would change with the new plan?
+                                             //Maybe keep it simple and show their income to debt ratio
+                },
+                "4": {
+                    "title": "Paying off your credit card debt",
+                    "description": "You may benefit from a debt relief program. With the information you've given us, we believe you qualify for Accredited Debt Relief's assistance. Accredited Debt Relief can help you consolidate your debt and reduce your monthly payments. Speak to a professional in minutes.",
+                    "link": "https://www.accrediteddebtrelief.com/free-quote/ocp/aff/questionnaire/debt_amount/?affiliate_id=152&campaign_id=2717&click_id=cr5r41t296uce9m01p5g&offer_id=13&request_id=2-cr5r41t296uce9m01p70&subid1=b775de06fb5e44c7844f801ccb908673&subid2=&subid3=&subid4=&subid5=2717&utm_campaign=14-2717&utm_medium=affiliate&utm_source=152#debt_amount",
+                    "logic": "debtFunction4" //This is the catchall for credit card debt. They should have a decent amount of credit card debt to be presented with this option
+                                             //Show how much their monthly payments would be reduced by (claimed to be 40% plus).  Will require information on how much they're paying the debt down per month.
+                                             //855-216-5196 (talk to a real person in minutes)
+                },
+                "5": {
+                    "title": "Paying off your debt",
+                    "description": "If you have debt, you may benefit from a debt relief program. With the information you've given us, we believe you qualify for National Debt Relief's assistance. National Debt Relief can help you consolidate your debt and reduce your monthly payments. Speak to a professional in minutes.",
+                    "link": "https://www.nationaldebtrelief.com/apply/",
+                    "logic": "debtFunction5" //For mild credit card, medical, or student loan debt.  This is a catchall if there is no severe debt,
+                                             //but they have some debt.
+                                             //could do a rate comparison of their current interest rate vs the new rate that predicts their old pay-off date vs the new estimated pay-off date.
+                                             //800-300 (talk to a real person in minutes)
+                },
+                "6": {
+                    "title": "Understanding your debt",
+                    "description": "Check out nerdwallet and other resources to understand your debt and how to pay it off. Ensure you know which debt relief method is best for you. Be mindful of scams and predatory lenders.",
+                    "link": "https://www.nerdwallet.com/article/finance/find-debt-relief",
+                    "logic": "debtFunction6" //No visual for this one.  Just a safety net to make sure they're not getting scammed and know what they're getting into.
+                                             //This should be a lower ranked catchall for people who don't have much debt or have a mix of low debt.
+                },
+                "7": {
+                    "title": "Credit Card debt is stressful, talk to a professional",
+                    "description": "Speaking to a credit coumselor give you peace of mind and help you understand your options. They can help you budget, connect you with educational resources, and help you negotiate with creditors. Ensure you find a credible credit counselor who is transparent about fees and licensing.",
+                    "link": "https://consumer.ftc.gov/articles/how-get-out-debt#Credit%20Counseling",
+                    "logic": "debtFunction7" //No visual for this one.  Just a safety net to make sure they're not getting scammed and know what they're getting into.
+                                             //This should be a lower ranked catchall for people with substantial credit card debt.
                 }
             }
         }
