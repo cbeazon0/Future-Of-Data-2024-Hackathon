@@ -1,0 +1,50 @@
+{
+    "recommendations": {
+        "Budget": {
+            "title": "Budget",
+            "longDescription": "Budget friendly options but longer",
+            "shortDescription": "Budget friendly options",
+            "resources": {
+                "1": {
+                    "title": "Low Income Budget Template",
+                    "description": "Low Income Budget Template",
+                    "link": "https://www.google.com",
+                    "logic": "budgetFunction1"
+                },
+                "2": {
+                    "title": "Budget Friendly Option 2",
+                    "description": "Budget friendly option 2",
+                    "link": "https://www.google.com"
+                },
+                "3": {
+                    "title": "Budget Friendly Option 3",
+                    "description": "Budget friendly option 3",
+                    "link": "https://www.google.com"
+                }
+            }
+        },
+        "other": {
+            "title": "other",
+            "longDescription": "other friendly options but longer",
+            "shortDescription": "other friendly options",
+            "resources": {
+                "1": {
+                    "title": "Low Income Budget Template",
+                    "description": "Low Income Budget Template",
+                    "link": "https://www.google.com",
+                    "logic": "budgetFunction1"
+                },
+                "2": {
+                    "title": "Budget Friendly Option 2",
+                    "description": "Budget friendly option 2",
+                    "link": "https://www.google.com"
+                },
+                "3": {
+                    "title": "Budget Friendly Option 3",
+                    "description": "Budget friendly option 3",
+                    "link": "https://www.google.com"
+                }
+            }
+        }
+    }
+}
