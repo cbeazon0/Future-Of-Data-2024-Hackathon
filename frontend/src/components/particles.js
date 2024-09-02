@@ -19,7 +19,7 @@ export const particleNetwork = (backgroundColor, dotColor, canvas) => {
   // Function to set the canvas dimensions and reinitialize particles
   function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.5;
+    canvas.height = window.innerHeight;
     init(); // Reinitialize particles with new canvas dimensions
   }
 

@@ -21,6 +21,7 @@ export default {
           6: "#FF98E2",
           7: "#71CE52",
           8: "#81ff57",
+          9: "#e11d48",
         },
         stroke: {
           1: "#26242C",
@@ -80,5 +81,21 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addBase, config }) {
+      addBase({
+        "input[type='number']::-webkit-outer-spin-button": {
+          "WebkitAppearance": "none",
+          "margin": 0,
+        },
+        "input[type='number']::-webkit-inner-spin-button": {
+          "WebkitAppearance": "none",
+          "margin": 0,
+        },
+        "input[type='number']": {
+          "-moz-appearance": "textfield", // Firefox
+        },
+      });
+    },
+  ],
 };

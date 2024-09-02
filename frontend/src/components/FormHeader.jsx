@@ -6,7 +6,7 @@ const FormHeader = () => {
   const [isHover, setIsHovered] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-transparent z-10">
+    <header className="top-0 left-0 right-0 border-b border-white/10 z-10 bg-n-15">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
@@ -19,10 +19,27 @@ const FormHeader = () => {
               height={40}
               src={isHover ? logoHover : logo}
               alt=""
-              href="/"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             />
+          </a>
+        </div>
+        <div className="flex lg:hidden">
+          {/* Home link for smaller screens */}
+          <a
+            href="/"
+            className="text-lg font-semibold leading-6 text-white hover:text-color-8 hover:underline"
+          >
+            Home
+          </a>
+        </div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {/* Home link for larger screens */}
+          <a
+            href="/"
+            className="text-lg font-semibold leading-6 text-white hover:text-color-8 hover:underline"
+          >
+            Home
           </a>
         </div>
       </nav>

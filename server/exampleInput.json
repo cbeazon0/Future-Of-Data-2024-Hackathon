@@ -1,0 +1,42 @@
+{
+  "data": {
+    "base": {
+      "income": 0,
+      "expenses": 0,
+      "savings": 0,
+      "debt": 0
+    },
+    "personal": {
+      "age": -1,
+      "dependents": -1
+    },
+    "budget": {
+      "housing": 0,
+      "groceries": 0,
+      "eatOut": 0,
+      "entertainment": 0,
+      "transportation": 0,
+      "heathCare": 0,
+      "insurance": 0,
+      "otherNeeds": 0
+    },
+    "debt": {
+      "medical": {
+        "amount": 0,
+        "rate": -1
+      },
+      "student": {
+        "amount": 0,
+        "rate": -1
+      },
+      "credit": {
+        "amount": 0,
+        "rate": -1
+      },
+      "other": {
+        "amount": 0,
+        "rate": -1
+      }
+    }
+  }
+}

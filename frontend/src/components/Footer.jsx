@@ -6,7 +6,7 @@ const Footer = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="mt-auto w-full py-6 px-4 sm:px-6 lg:px-8 mx-auto bg-n-15 border-t border-n-4">
+    <div className="mt-auto w-full py-4 px-4 sm:px-6 lg:px-8 mx-auto bg-n-15 border-t border-n-4">
       <div className="flex flex-col items-center text-center">
         <div>
           <a
