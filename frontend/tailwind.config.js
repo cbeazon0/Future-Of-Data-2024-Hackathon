@@ -57,6 +57,8 @@ export default {
         7.5: "1.875rem",
         15: "3.75rem",
         120: "30rem",
+        150: "37.5rem",
+        155: "38.75rem",
         180: "45rem",
       },
       opacity: {

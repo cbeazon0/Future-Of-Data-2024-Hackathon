@@ -96,7 +96,7 @@ const Form = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result.message); // Handle response from backend
-        navigate("/dashboard", { state: { data: result.data } }); // Redirect to dashboard with state
+        navigate("/dashboard", { state: { data: result.recommendations } }); // Redirect to dashboard with state
       } else {
         console.log("Submission failed");
       }
