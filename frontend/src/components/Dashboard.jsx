@@ -4,28 +4,17 @@ const Dashboard = () => {
   const location = useLocation();
   const { data } = location.state || {}; // Retrieve data passed from form submission
 
-  // Ensure you handle the case where data might be undefined
   return (
-    <div>
-      <h1>Dashboard</h1>
-      {data ? (
-        <div>
-          {/* Example rendering of data */}
-          <h2>Base Data</h2>
-          <pre>{JSON.stringify(data.base, null, 2)}</pre> {/* Use JSON.stringify to render object as string */}
-          
-          <h2>Budget Data</h2>
-          <pre>{JSON.stringify(data.budget, null, 2)}</pre>
-          
-          <h2>Debt Data</h2>
-          <pre>{JSON.stringify(data.debt, null, 2)}</pre>
-          
-          <h2>Personal Data</h2>
-          <pre>{JSON.stringify(data.personal, null, 2)}</pre>
+    <div className="flex flex-col h-screen">
+      {/* Top Section */}
+      <div className="flex-1 p-6 bg-n-15">
+        <h1 className="text=3xl font-bold mb-4 text-center">
+          Dynamic Section
+        </h1>
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <p>Dynamic Content or Charts will be displayed here</p>
         </div>
-      ) : (
-        <p>No data available</p>
-      )}
+      </div>
     </div>
   );
 };
