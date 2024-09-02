@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { particleNetwork } from "./particles";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const canvasRef = useRef(null);
+  const Navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     base: {
@@ -86,8 +88,15 @@ const Form = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-      console.log(result.message); // Handle response from backend
+      console.log("Response Status:", response.status); // Log status code
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result.message); // Handle response from backend
+        Navigate("/dashboard"); // Redirect to dashboard on successful submission
+      } else {
+        console.log("Submission failed");
+      }
     } catch (error) {
       console.log("Error:", error);
     }
@@ -122,7 +131,7 @@ const Form = () => {
               information does not have to be exact, however, the more accurate
               the information, the better the results.
             </p>
-            <form onSubmit={handleSubmit}>
+            <form>
               {currentStep === 1 && (
                 <>
                   <h2 className="text-n-15 text-center text-2xl font-semibold">
@@ -590,7 +599,7 @@ const Form = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="flex-1">
                       <label
                         htmlFor="medicalInterestRate"
@@ -701,8 +710,9 @@ const Form = () => {
                   </button>
                 ) : (
                   <button
-                    type="submit"
+                    type="button"
                     className="bg-n-15 hover:bg-n-14 text-white font-semibold py-2 px-4 rounded-md"
+                    onClick={handleSubmit}
                   >
                     Submit
                   </button>
