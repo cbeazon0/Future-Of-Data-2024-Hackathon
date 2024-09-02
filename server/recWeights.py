@@ -1,4 +1,158 @@
 import json
+import math
+
+def annual_future_values(age, monthly_investment, growth_rate, years_until_retirement):
+    future_values = []
+    future_value = 0
+    months = years_until_retirement * 12
+    monthly_growth_rate = (1 + growth_rate) ** (1 / 12) - 1
+
+    for year in range(1, years_until_retirement + 1):
+        for month in range(12):
+            future_value = future_value * (1 + monthly_growth_rate) + monthly_investment
+        
+        future_values.append((year, future_value))
+    
+    return future_values
+
+
+
+
+
+
+
+def get_repayment_period(debt, income):
+    debt_to_income_ratio = debt / income
+    
+    if debt_to_income_ratio <= 0.10:
+        return 12  # 1 year
+    elif debt_to_income_ratio <= 0.25:
+        return 24  # 2 years
+    elif debt_to_income_ratio <= 0.50:
+        return 36  # 3 years
+    else:
+        return 60  # 5 years 
+
+def calculate_monthly_payment(debt, annual_interest_rate, months):
+    monthly_interest_rate = annual_interest_rate / 12 / 100
+    if monthly_interest_rate == 0:
+        return debt / months
+    else:
+        return debt * (monthly_interest_rate * (1 + monthly_interest_rate)**months) / ((1 + monthly_interest_rate)**months - 1)
+
+def calculate_debt_payoff(initial_debt, monthly_payment, annual_interest_rate, months):
+    balances = []
+    debt = initial_debt
+    monthly_interest_rate = annual_interest_rate / 12 / 100
+    
+    for month in range(1, months + 1):
+        interest = debt * monthly_interest_rate
+        debt = debt + interest - monthly_payment
+        if debt < 0:
+            debt = 0
+        balances.append(-debt)
+    
+    return balances
+
+def estimate_monthly_payment_and_balances(debt, income, annual_interest_rate):
+    months = get_repayment_period(debt, income)
+    monthly_payment = calculate_monthly_payment(debt, annual_interest_rate, months)
+    
+    balances = calculate_debt_payoff(debt, monthly_payment, annual_interest_rate, months)
+    
+    return monthly_payment, months, balances
+
+
+
+def generate_balance_tuples(debt, income, annual_interest_rate):
+    # Estimate the monthly payment and get the remaining balances over time
+    monthly_payment, balances = estimate_monthly_payment_and_balances(debt, income, annual_interest_rate)
+    
+    # Create a list of tuples with (month number, amount left)
+    balance_tuples = [(month, balance) for month, balance in enumerate(balances, start=1)]
+    
+    return balance_tuples
+
+
+
+
+
+
+
+
+
+def generate_chart_data(data):
+    
+    income = int(data["base"]["income"])
+    expenses = int(data["base"]["expenses"])
+    savings = int(data["base"]["savings"])
+    debt = int(data["base"]["debt"])
+    age = int(data["personal"]["age"])
+    dependents = int(data["personal"]["dependents"])
+    housing = int(data["budget"]["housing"])
+    groceries = int(data["budget"]["groceries"])
+    eatOut = int(data["budget"]["eatOut"])
+    entertainment = int(data["budget"]["entertainment"])
+    transportation = int(data["budget"]["transportation"])
+    healthCare = int(data["budget"]["healthCare"])
+    insurance = int(data["budget"]["insurance"])
+    otherNeeds = int(data["budget"]["otherNeeds"])
+    debt_medical_amount = int(data["debt"]["medical"]["amount"])
+    debt_medical_rate = int(data["debt"]["medical"]["rate"])
+    debt_student_amount = int(data["debt"]["student"]["amount"])
+    debt_student_rate = int(data["debt"]["student"]["rate"])
+    debt_credit_amount = int(data["debt"]["credit"]["amount"])
+    debt_credit_rate = int(data["debt"]["credit"]["rate"])
+    debt_other_amount = int(data["debt"]["other"]["amount"])
+    debt_other_rate = int(data["debt"]["other"]["rate"])
+
+    #making denominators nonzero
+    if expenses == 0 or expenses == -1:
+        expenses = 1
+    if dependents == -1:
+        dependents = 0
+    if income == 0 or income == -1:
+        income = 1
+    
+    deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
+    takeHome = income - expenses
+    debtTotal = debt_medical_amount + debt_student_amount + debt_credit_amount + debt_other_amount
+    growthfactor = income/(dependents+1)/expenses
+    povertyLine = 15000 #approx
+
+    if deepExpenses >= expenses:
+        expenses = deepExpenses
+
+
+    #BUDGET_1: 50/30/20 DONUT CHART
+    fifty_percent_needs = 0.5 * (deepExpenses - entertainment)
+    thirty_percent_wants = 0.3 * entertainment
+    twenty_percent_savings = 0.2 * takeHome
+
+    #BUDGET_2: Create a budget to pay off debt
+    
+    #BUDGET_3: Looking towards retirement LINE CHART
+    years_until_retirement = 65 - age
+    annual_future_values(1000, 0.1, years_until_retirement)
+
+    #DEBT_1: 
+    medical_monthly_payment, medical_payoff_months, medical_balances = estimate_monthly_payment_and_balances(debt_medical_amount, income, debt_medical_rate)
+
+    #DEBT_2:
+
+    #DEBT_3: Paying off student loan debt
+
+    #DEBT_4: Paying off credit card debt
+    credit_monthly_payment, credit_payoff_months, credit_balances = estimate_monthly_payment_and_balances(debt_credit_amount, income, debt_credit_rate)
+    #DEBT_5:
+
+    #DEBT_6:
+
+    #DEBT_7:
+
+
+
+
 
 def weight(data):
     print(data)
@@ -208,7 +362,9 @@ def generate_output(
                         ),
                         "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
                         "logic": "budgetFunc1",
-                        "weight": budget1weight
+                        "weight": budget1weight,
+                        "chart_type": "bar",
+                        "chart_data": budget_fifty_thirty_twenty(data)
                     },
                     "2": {
                         "title": "Create a budget to pay off debt",

@@ -9,7 +9,7 @@
                     "description": "The 50/30/20 rule offers a straightforward approach to budgeting by dividing your after-tax income into three categories: 50% for essential needs like housing, utilities, and groceries, 30% for discretionary spending on things you enjoy, such as dining out or hobbies, and 20% towards savings and debt repayment. By adhering to this balanced budget, you can ensure that you cover necessary expenses, enjoy your life, and still make progress on your financial goals. Learn more about how to apply this method with NerdWallet's calculator.",
                     "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
                     "logic": "budgetFunc1",
-                    "weight": 2
+                    "weight": 1
                 },
                 "2": {
                     "title": "Create a budget to pay off debt",
@@ -19,11 +19,11 @@
                     "weight": 0
                 },
                 "3": {
-                    "title": "Looking to retire?",
+                    "title": "Looking towards retirement...",
                     "description": "Retirement planning requires careful budgeting to ensure you have enough saved to enjoy your golden years. The zero-based budgeting method helps you allocate every dollar of your income to a specific expense, savings goal, or debt repayment, ensuring that your income minus expenses equals zero. This method forces you to be intentional about every spending decision, making it an effective tool for maximizing savings and planning for retirement. Discover more about how to implement zero-based budgeting and set yourself up for a secure retirement.",
                     "link": "https://www.ramseysolutions.com/budgeting/how-to-make-a-zero-based-budget",
                     "logic": "budgetFunc3",
-                    "weight": 9
+                    "weight": 1
                 }
             }
         },
