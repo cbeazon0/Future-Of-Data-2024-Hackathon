@@ -18,6 +18,7 @@ const Dashboard = () => {
   const location = useLocation();
   const { data } = location.state || {}; // Retrieve data passed from form submission
   const [recommendations, setRecommendations] = useState([]); // State to hold processed recommendations
+  const { selectedRecommendation, setSelectedRecommendation } = useState(null);
 
   const data2 = {
     labels: ["Category A", "Category B", "Category C"],
@@ -61,6 +62,14 @@ const Dashboard = () => {
     }
   }, [data]); // Effect runs only when `data` changes
 
+  const handleRecommendationClick = (recommendation) => {
+    if (selectedRecommendation === recommendation) {
+      setSelectedRecommendation(null);
+    } else {
+      setSelectedRecommendation(recommendation);
+    }
+  };
+
   return (
     <div className="min-h-90">
       {/* Top Section */}
@@ -98,6 +107,8 @@ const Dashboard = () => {
                 key={index}
                 title={recommendation.title}
                 content={recommendation.description}
+                isSelected={selectedRecommendation === recommendation} // Pass selected state to card
+                onClick={() => handleRecommendationClick(recommendation)}
               />
             ))}
           </div>
