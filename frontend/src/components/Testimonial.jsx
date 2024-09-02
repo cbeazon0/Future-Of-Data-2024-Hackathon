@@ -45,7 +45,7 @@ const Testimonial = () => {
       <div className="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="max-w-2xl w-3/4 lg:w-1/2 mb-6 sm:mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-semibold">
-            Who Are We?
+            Who We Are
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
