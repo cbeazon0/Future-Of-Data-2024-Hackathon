@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const canvasRef = useRef(null);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     base: {
       income: -1,
@@ -79,6 +80,8 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the form from submitting the traditional way
+    setLoading(true);
+
     try {
       const response = await fetch("http://localhost:5000/api/data", {
         method: "POST",
@@ -93,12 +96,14 @@ const Form = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result.message); // Handle response from backend
-        Navigate("/dashboard"); // Redirect to dashboard on successful submission
+        navigate("/dashboard", { state: { data: result.data } }); // Redirect to dashboard with state
       } else {
         console.log("Submission failed");
       }
     } catch (error) {
       console.log("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -718,6 +723,7 @@ const Form = () => {
                   </button>
                 )}
               </div>
+              {loading && <p>Loading...</p>}
             </form>
           </div>
         </div>
