@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { particleNetwork } from "./particles";
 import { useNavigate } from "react-router-dom";
+import FormInput from "./subComponents/FormInput";
 
 const Form = () => {
   const canvasRef = useRef(null);
@@ -220,54 +221,21 @@ const Form = () => {
                     />
                   </div>
 
-                  <label
-                    htmlFor="savings"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    How much do you have in savings accounts, checking accounts,
-                    cash and brokerage accounts in total?
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="base.savings"
-                      placeholder="0"
-                      value={
-                        formData.base.savings === -1
-                          ? null
-                          : formData.base.savings
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
-                    />
-                  </div>
+                  <FormInput
+                    id="savings"
+                    label="How much do you have in savings accounts, checking accounts, cash and brokerage accounts in total?"
+                    name="base.savings"
+                    value={formData.base.savings}
+                    onChange={handleChange}
+                  />
 
-                  <label
-                    htmlFor="debt"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    How much do you have in debt total?
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="base.debt"
-                      placeholder="0"
-                      value={
-                        formData.base.debt === -1 ? null : formData.base.debt
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                  <FormInput
+                    id="debt"
+                    label="How much do you have in debt total?"
+                    name="base.debt"
+                    value={formData.base.debt}
+                    onChange={handleChange}
                     />
-                  </div>
 
                   <label
                     htmlFor="dependents"
@@ -300,199 +268,65 @@ const Form = () => {
                   <p className="text-n-15 text-sm font-normal mt-5">
                     How much do you spend on the following each month?
                   </p>
-                  <label
-                    htmlFor="housing"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Housing (Rent/Mortgage + Utilities)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.housing"
-                      placeholder="0"
-                      value={
-                        formData.budget.housing === -1
-                          ? null
-                          : formData.budget.housing
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
-                    />
-                  </div>
 
-                  <label
-                    htmlFor="groceries"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Groceries
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.groceries"
-                      placeholder="0"
-                      value={
-                        formData.budget.groceries === -1
-                          ? null
-                          : formData.budget.groceries
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                  <FormInput
+                    id="housing"
+                    label="Housing (Rent/Mortgage + Utilities)"
+                    name="budget.housing"
+                    value={formData.budget.housing}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="eatingOut"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Dining Out (Ordering Food)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.eatOut"
-                      placeholder="0"
-                      value={
-                        formData.budget.eatOut === -1
-                          ? null
-                          : formData.budget.eatOut
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+
+                  <FormInput
+                    id="groceries"
+                    label="Groceries"
+                    name="budget.groceries"
+                    value={formData.budget.groceries}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="transportation"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Transportation (Gas, Public Transport)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.transportation"
-                      placeholder="0"
-                      value={
-                        formData.budget.transportation === -1
-                          ? null
-                          : formData.budget.transportation
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+
+                  <FormInput
+                    id="eatingOut"
+                    label="Dining Out (Ordering Food)"
+                    name="budget.eatOut"
+                    value={formData.budget.eatOut}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="healthCare"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Health Care (Insurance, Medication)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.healtCare"
-                      placeholder="0"
-                      value={
-                        formData.budget.heathCare === -1
-                          ? null
-                          : formData.budget.heathCare
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                    <FormInput
+                    id="transportation"
+                    label="Transportation (Gas, Public Transport)"
+                    name="budget.transportation"
+                    value={formData.budget.transportation}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="insurance"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Personal Insurance (Life, Auto, Home)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.insurance"
-                      placeholder="0"
-                      value={
-                        formData.budget.insurance === -1
-                          ? null
-                          : formData.budget.insurance
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                  <FormInput
+                    id="healthCare"
+                    label="Health Care (Insurance, Medication)"
+                    name="budget.heathCare"
+                    value={formData.budget.heathCare}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="otherNeeds"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Other Needs (Phone, Internet, etc.)
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.otherNeeds"
-                      placeholder="0"
-                      value={
-                        formData.budget.otherNeeds === -1
-                          ? null
-                          : formData.budget.otherNeeds
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                  <FormInput
+                    id="insurance"
+                    label="Personal Insurance (Life, Auto, Home)"
+                    name="budget.insurance"
+                    value={formData.budget.insurance}
+                    onChange={handleChange}
                     />
-                  </div>
-                  <label
-                    htmlFor="enterntainment"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Entertainment
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="budget.enterntainment"
-                      placeholder="0"
-                      value={
-                        formData.budget.entertainment === -1
-                          ? null
-                          : formData.budget.entertainment
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
+                  <FormInput
+                    id="otherNeeds"
+                    label="Other Needs (Phone, Internet, etc.)"
+                    name="budget.otherNeeds"
+                    value={formData.budget.otherNeeds}
+                    onChange={handleChange}
                     />
-                  </div>
+                  <FormInput
+                    id="entertainment"
+                    label="Entertainment"
+                    name="budget.entertainment"
+                    value={formData.budget.entertainment}
+                    onChange={handleChange}
+                    />
                 </>
               )}
               {currentStep === 3 && (
@@ -507,189 +341,65 @@ const Form = () => {
 
                   <div className="mt-5 flex flex-col sm:flex-row gap-5">
                     <div className="flex-1">
-                      <label
-                        htmlFor="medicalAmount"
-                        className="block text-sm font-medium leading-6 text-n-15"
-                      >
-                        Medical Debt
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                          <span className="text-n-3 sm:text-sm">$</span>
-                        </div>
-                        <input
-                          type="number"
-                          name="debt.medical.amount"
-                          placeholder="0"
-                          value={
-                            formData.debt.medical.amount === -1
-                              ? null
-                              : formData.debt.medical.amount
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="studentAmount"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Student Debt
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                          <span className="text-n-3 sm:text-sm">$</span>
-                        </div>
-                        <input
-                          type="number"
-                          name="debt.student.amount"
-                          placeholder="0"
-                          value={
-                            formData.debt.student.amount === -1
-                              ? null
-                              : formData.debt.student.amount
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="creditAmount"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Credit Card Debt
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                          <span className="text-n-3 sm:text-sm">$</span>
-                        </div>
-                        <input
-                          type="number"
-                          name="debt.credit.amount"
-                          placeholder="0"
-                          value={
-                            formData.debt.credit.amount === -1
-                              ? null
-                              : formData.debt.credit.amount
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="otherAmount"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Any Other Debt
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                          <span className="text-n-3 sm:text-sm">$</span>
-                        </div>
-                        <input
-                          type="number"
-                          name="debt.other.amount"
-                          placeholder="0"
-                          value={
-                            formData.debt.other.amount === -1
-                              ? null
-                              : formData.debt.other.amount
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
+                      <FormInput
+                        id="medicalAmount"
+                        label="Medical Debt"
+                        name="debt.medical.amount"
+                        value={formData.debt.medical.amount}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="studentAmount"
+                        label="Student Debt"
+                        name="debt.student.amount"
+                        value={formData.debt.student.amount}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="creditAmount"
+                        label="Credit Card Debt"
+                        name="debt.credit.amount"
+                        value={formData.debt.credit.amount}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="otherAmount"
+                        label="Any Other Debt"
+                        name="debt.other.amount"
+                        value={formData.debt.other.amount}
+                        onChange={handleChange}
+                      />
                     </div>
 
                     <div className="flex-1">
-                      <label
-                        htmlFor="medicalInterestRate"
-                        className="block text-sm font-medium leading-6 text-n-15"
-                      >
-                        Interest Rate
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <input
-                          type="number"
-                          name="debt.medical.rate"
-                          placeholder="0"
-                          value={
-                            formData.debt.medical.rate === -1
-                              ? null
-                              : formData.debt.medical.rate
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="studentInterestRate"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Interest Rate
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <input
-                          type="number"
-                          name="debt.student.rate"
-                          placeholder="0"
-                          value={
-                            formData.debt.student.rate === -1
-                              ? null
-                              : formData.debt.student.rate
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="creditInterestRate"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Interest Rate
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <input
-                          type="number"
-                          name="debt.credit.rate"
-                          placeholder="0"
-                          value={
-                            formData.debt.credit.rate === -1
-                              ? null
-                              : formData.debt.credit.rate
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
-                      <label
-                        htmlFor="otherInterestRate"
-                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                      >
-                        Interest Rate
-                      </label>
-                      <div className="mt-1 relative rounded-md shadow-sm">
-                        <input
-                          type="number"
-                          name="debt.other.rate"
-                          placeholder="0"
-                          value={
-                            formData.debt.other.rate === -1
-                              ? null
-                              : formData.debt.other.rate
-                          }
-                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                          onChange={handleChange}
-                          min="0"
-                        />
-                      </div>
+                      <FormInput
+                        id="medicalInterestRate"
+                        label="Interest Rate"
+                        name="debt.medical.rate"
+                        value={formData.debt.medical.rate}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="studentInterestRate"
+                        label="Interest Rate"
+                        name="debt.student.rate"
+                        value={formData.debt.student.rate}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="creditInterestRate"
+                        label="Interest Rate"
+                        name="debt.credit.rate"
+                        value={formData.debt.credit.rate}
+                        onChange={handleChange}
+                      />
+                      <FormInput
+                        id="otherInterestRate"
+                        label="Interest Rate"
+                        name="debt.other.rate"
+                        value={formData.debt.other.rate}
+                        onChange={handleChange}
+                      />
                     </div>
                   </div>
                 </>

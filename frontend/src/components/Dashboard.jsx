@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import RecommendationCard from "./subComponents/RecommendationCard";
 import { Pie } from "react-chartjs-2";
 import {
@@ -16,6 +17,7 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 const Dashboard = () => {
   const location = useLocation();
   const { data } = location.state || {}; // Retrieve data passed from form submission
+  const [recommendations, setRecommendations] = useState([]); // State to hold processed recommendations
 
   const data2 = {
     labels: ["Category A", "Category B", "Category C"],
@@ -31,37 +33,33 @@ const Dashboard = () => {
 
   console.log("Data:", data);
 
-  // Process recommendation data
-  const processRecommendations = (data) => {
-    let finalRecommendations = [];
+  useEffect(() => {
+    // Function to process recommendation data
+    const processRecommendations = (data) => {
+      let finalRecommendations = [];
 
-    for (const category in data) {
-      const resources = data[category].resources;
+      for (const category in data) {
+        const resources = data[category].resources;
 
-      const filteredResources = Object.values(resources).filter(
-        (resource) => resource.weight > 0
-      );
+        const filteredResources = Object.values(resources).filter(
+          (resource) => resource.weight > 0
+        );
 
-      finalRecommendations = finalRecommendations.concat(filteredResources);
+        finalRecommendations = finalRecommendations.concat(filteredResources);
+      }
+
+      finalRecommendations.sort((a, b) => b.weight - a.weight);
+
+      return finalRecommendations;
+    };
+
+    if (data) {
+      // Process recommendations only once when data is available
+      const processedRecommendations = processRecommendations(data);
+      setRecommendations(processedRecommendations);
+      console.log("Filtered Recommendations:", processedRecommendations);
     }
-
-    finalRecommendations.sort((a, b) => b.weight - a.weight);
-
-    return finalRecommendations;
-  };
-
-  const recommendations = processRecommendations(data);
-
-  console.log("Filtered Recommendations:", recommendations);
-
-  // Dummy data for cards
-  const cardData = [
-    { title: "Card Title 1", content: "Card content goes here." },
-    { title: "Card Title 2", content: "Card content goes here." },
-    { title: "Card Title 3", content: "Card content goes here." },
-    { title: "Card Title 4", content: "Card content goes here." },
-    { title: "Card Title 5", content: "Card content goes here." },
-  ];
+  }, [data]); // Effect runs only when `data` changes
 
   return (
     <div className="min-h-90">
@@ -71,7 +69,7 @@ const Dashboard = () => {
           <h1 className="text-3xl font-bold mb-4 text-center text-white">
             Statistics and Insights
           </h1>
-          <div className="bg-n-15 p-4 rounded-lg shadow-md border-1 border-n-3">
+          <div className="bg-n-15 rounded-lg shadow-md border-1 border-n-3">
             {/* Two-column layout */}
             <div className="flex flex-col md:flex-row items-center justify-center">
               <div className="w-full md:w-1/2 flex justify-center">
