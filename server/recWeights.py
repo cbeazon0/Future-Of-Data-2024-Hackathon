@@ -1,7 +1,7 @@
 import json
 
-#print(data["data"]["debt"]["medical"]["amount"])
 def weight(data):
+    print(data)
     budget1weight = 0 # 50/30/20 - catchall for budgeting
     budget2weight = 0 # significant debt
     budget3weight = 0 # decent income/expenses - older age - retirement oriented
@@ -13,28 +13,28 @@ def weight(data):
     debt6weight = 0 # educational for any debt type - those with debt < 5% annual income should have this in their list
     debt7weight = 0 # educational for any debt type - those with debt > 5% annual income should have this in their list
 
-    income = data["data"]["base"]["income"]
-    expenses = data["data"]["base"]["expenses"]
-    savings = data["data"]["base"]["savings"]
-    debt = data["data"]["base"]["debt"]
-    age = data["data"]["personal"]["age"]
-    dependents = data["data"]["personal"]["dependents"]
-    housing = data["data"]["budget"]["housing"]
-    groceries = data["data"]["budget"]["groceries"]
-    eatOut = data["data"]["budget"]["eatOut"]
-    entertainment = data["data"]["budget"]["entertainment"]
-    transportation = data["data"]["budget"]["transportation"]
-    healthCare = data["data"]["budget"]["healthCare"]
-    insurance = data["data"]["budget"]["insurance"]
-    otherNeeds = data["data"]["budget"]["otherNeeds"]
-    debt_medical_amount = data["data"]["debt"]["medical"]["amount"]
-    debt_medical_rate = data["data"]["debt"]["medical"]["rate"]
-    debt_student_amount = data["data"]["debt"]["student"]["amount"]
-    debt_student_rate = data["data"]["debt"]["student"]["rate"]
-    debt_credit_amount = data["data"]["debt"]["credit"]["amount"]
-    debt_credit_rate = data["data"]["debt"]["credit"]["rate"]
-    debt_other_amount = data["data"]["debt"]["other"]["amount"]
-    debt_other_rate = data["data"]["debt"]["other"]["rate"]
+    income = int(data["base"]["income"])
+    expenses = int(data["base"]["expenses"])
+    savings = int(data["base"]["savings"])
+    debt = int(data["base"]["debt"])
+    age = int(data["personal"]["age"])
+    dependents = int(data["personal"]["dependents"])
+    housing = int(data["budget"]["housing"])
+    groceries = int(data["budget"]["groceries"])
+    eatOut = int(data["budget"]["eatOut"])
+    entertainment = int(data["budget"]["entertainment"])
+    transportation = int(data["budget"]["transportation"])
+    healthCare = int(data["budget"]["healthCare"])
+    insurance = int(data["budget"]["insurance"])
+    otherNeeds = int(data["budget"]["otherNeeds"])
+    debt_medical_amount = int(data["debt"]["medical"]["amount"])
+    debt_medical_rate = int(data["debt"]["medical"]["rate"])
+    debt_student_amount = int(data["debt"]["student"]["amount"])
+    debt_student_rate = int(data["debt"]["student"]["rate"])
+    debt_credit_amount = int(data["debt"]["credit"]["amount"])
+    debt_credit_rate = int(data["debt"]["credit"]["rate"])
+    debt_other_amount = int(data["debt"]["other"]["amount"])
+    debt_other_rate = int(data["debt"]["other"]["rate"])
 
     #making denominators nonzero
     if expenses == 0 or expenses == -1:
@@ -44,12 +44,14 @@ def weight(data):
     if income == 0 or income == -1:
         income = 1
     
-
+    deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
     debtTotal = debt_medical_amount + debt_student_amount + debt_credit_amount + debt_other_amount
     growthfactor = income/(dependents+1)/expenses
     povertyLine = 15000 #approx
 
+    if deepExpenses >= expenses:
+        expenses = deepExpenses
 
     budget1weight = 0
     budget2weight = 0
@@ -62,7 +64,7 @@ def weight(data):
     debt6weight = 0
     debt7weight = 0
 
-    if debtTotal > income*0.05/(dependents+1):
+    if debtTotal > income*12*0.05/(dependents+1):
         budget1weight += 1
         budget2weight += 3
         budget3weight += 0
@@ -73,7 +75,7 @@ def weight(data):
         debt5weight += 1
         debt6weight += 0
         debt7weight += 1
-    if debtTotal > income*0.15/(dependents+1):
+    if debtTotal > income*12*0.15/(dependents+1):
         budget1weight += 0
         budget2weight += 2
         budget3weight += 0
@@ -128,7 +130,7 @@ def weight(data):
         debt5weight += 1
         debt6weight += 1
         debt7weight += 1
-    if debt_credit_amount > income*0.05:
+    if debt_credit_amount > income*12*0.05:
         budget1weight += 1
         budget2weight += 2
         budget3weight += 0
@@ -222,7 +224,7 @@ def generate_output(
                         "weight": budget2weight
                     },
                     "3": {
-                        "title": "Looking to retire?",
+                        "title": "Looking towards retirement...",
                         "description": (
                             "Retirement planning requires careful budgeting to ensure you have enough saved to enjoy your golden years. "
                             "The zero-based budgeting method helps you allocate every dollar of your income to a specific expense, savings goal, or debt repayment, "
@@ -331,52 +333,53 @@ def generate_output(
     file_path = 'output.json'
     with open(file_path, 'w') as json_output:
         json.dump(recommendations, json_output, indent=4)
+    return recommendations
 
 # Example usage
-test_data = {
-    "data": {
-        "base": {
-            "income": 5000,
-            "expenses": 2500,
-            "savings": 10000,
-            "debt": 32000
-        },
-        "personal": {
-            "age": 30,
-            "dependents": 0
-        },
-        "budget": {
-            "housing": 1500,
-            "groceries": 500,
-            "eatOut": 300,
-            "entertainment": 200,
-            "transportation": 300,
-            "healthCare": 200,
-            "insurance": 200,
-            "otherNeeds": 200
-        },
-        "debt": {
-            "medical": {
-                "amount": 1000,
-                "rate": 5.0
-            },
-            "student": {
-                "amount": 25000,
-                "rate": 4.5
-            },
-            "credit": {
-                "amount": 5000,
-                "rate": 18.0
-            },
-            "other": {
-                "amount": 1000,
-                "rate": 5.0
-            }
-        }
-    }
-}
+# test_data = {
+#     "data": {
+#         "base": {
+#             "income": 5000,
+#             "expenses": 2500,
+#             "savings": 10000,
+#             "debt": 32000
+#         },
+#         "personal": {
+#             "age": 30,
+#             "dependents": 0
+#         },
+#         "budget": {
+#             "housing": 1500,
+#             "groceries": 500,
+#             "eatOut": 300,
+#             "entertainment": 200,
+#             "transportation": 300,
+#             "healthCare": 200,
+#             "insurance": 200,
+#             "otherNeeds": 200
+#         },
+#         "debt": {
+#             "medical": {
+#                 "amount": 1000,
+#                 "rate": 5.0
+#             },
+#             "student": {
+#                 "amount": 25000,
+#                 "rate": 4.5
+#             },
+#             "credit": {
+#                 "amount": 5000,
+#                 "rate": 18.0
+#             },
+#             "other": {
+#                 "amount": 1000,
+#                 "rate": 5.0
+#             }
+#         }
+#     }
+# }
 
-# with open('exampleInput.json', 'r') as f:
-#     data = json.load(f)
-test_input = weight(test_data)
-print(generate_output(test_input[0], test_input[1], test_input[2], test_input[3], test_input[4], test_input[5], test_input[6], test_input[7], test_input[8], test_input[9]))
+# # with open('exampleInput.json', 'r') as f:
+# #     data = json.load(f)
+# test_input = weight(test_data)
+# print(generate_output(test_input[0], test_input[1], test_input[2], test_input[3], test_input[4], test_input[5], test_input[6], test_input[7], test_input[8], test_input[9]))

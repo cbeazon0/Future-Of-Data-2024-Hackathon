@@ -25,7 +25,7 @@ const Form = () => {
       eatOut: -1,
       entertainment: -1,
       transportation: -1,
-      heathCare: -1,
+      healthCare: -1,
       insurance: -1,
       otherNeeds: -1,
     },

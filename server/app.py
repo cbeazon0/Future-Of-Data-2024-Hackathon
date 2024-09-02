@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from recWeights import weight, generate_output
 import json
 
 # Create a Flask app
@@ -12,18 +13,9 @@ cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 @app.route("/api/data", methods=["POST"])
 def getData():
     data = request.get_json()
-    print(data)  # Debug input data
-
-    # Read output.json file and send as response
-    with open('output.json', 'r') as f:
-        output = f.read()
-
-    try:
-        outputData = json.loads(output)  # Parse JSON data
-    except json.JSONDecodeError:
-        outputData = {"message": "Error reading output.json"}
-
-    print(outputData)
+    print(data)
+    input = weight(data)
+    outputData = generate_output(input[0],input[1],input[2],input[3],input[4],input[5],input[6],input[7],input[8],input[9])
     return jsonify(outputData), 200
 
 # Test

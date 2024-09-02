@@ -17,7 +17,7 @@
                     "logic": "budgetFunc2" 
                 },
                 "3": {
-                    "title": "Looking to retire?",
+                    "title": "Looking towards retirement?",
                     "description": "Investigate the zero-based budgeting method. This method is a way of budgeting where your income minus your expenses equals zero. That's every dollar of your income assigned a job. This method can help you save for retirement.",
                     "link": "https://www.ramseysolutions.com/budgeting/how-to-make-a-zero-based-budget",
                     "logic": "budgetFunc3" 
