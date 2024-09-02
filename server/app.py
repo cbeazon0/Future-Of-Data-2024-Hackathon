@@ -11,8 +11,16 @@ cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 @app.route("/api/data", methods=["POST"])
 def getData():
     data = request.get_json()
-    print(f"Received data: {data}")
-    return jsonify({"message": "Data received successfully"}), 200
+
+    print(data) # Print the data to the console
+
+    # Process the data here
+    processed_data = {
+        "message": "Data processed successfully",
+        "data": data  # Include processed data here
+    }
+
+    return jsonify(processed_data), 200
     
 if __name__ == "__main__":
     app.run(debug = True, port = 5000)
