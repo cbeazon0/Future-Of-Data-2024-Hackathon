@@ -100,9 +100,9 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden sm:h-75 py-12 min-h-screen bg-n-15 z-0">
+    <div className="relative overflow-hidden sm:h-75 pt-12 min-h-screen bg-n-15 z-0">
       <div className="container mx-auto my-auto">
-        <div className="flex flex-col lg:flex-row w-10/12 lg:w-10/12 bg-white rounded-xl mx-auto shadow-sm overflow-hidden shadow-n-4 ring-1 ring-n-4">
+        <div className="flex flex-col lg:flex-row w-10/12 lg:w-11/12 bg-white rounded-xl mx-auto shadow-sm overflow-hidden shadow-n-4 ring-1 ring-n-4">
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center border-b border-n-14 relative overflow-hidden sm:h-36 lg:h-auto">
             <canvas
               ref={canvasRef}
@@ -487,55 +487,196 @@ const Form = () => {
                     Debt Breakdown
                   </h2>
                   <p className="text-n-15 text-sm font-normal mt-5">
-                    How much total debt do you have in each category and what is your interest rate?
+                    How much total debt do you have in each category and what is
+                    your interest rate?
                   </p>
-                  <label
-                    htmlFor="medicalAmount"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Medical Debt
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
+
+                  <div className="mt-5 flex flex-col sm:flex-row gap-5">
+                    <div className="flex-1">
+                      <label
+                        htmlFor="medicalAmount"
+                        className="block text-sm font-medium leading-6 text-n-15"
+                      >
+                        Medical Debt
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                          <span className="text-n-3 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          name="debt.medical.amount"
+                          placeholder="0"
+                          value={
+                            formData.debt.medical.amount === -1
+                              ? null
+                              : formData.debt.medical.amount
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="studentAmount"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Student Debt
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                          <span className="text-n-3 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          name="debt.student.amount"
+                          placeholder="0"
+                          value={
+                            formData.debt.student.amount === -1
+                              ? null
+                              : formData.debt.student.amount
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="creditAmount"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Credit Card Debt
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                          <span className="text-n-3 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          name="debt.credit.amount"
+                          placeholder="0"
+                          value={
+                            formData.debt.credit.amount === -1
+                              ? null
+                              : formData.debt.credit.amount
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="otherAmount"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Any Other Debt
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                          <span className="text-n-3 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          name="debt.other.amount"
+                          placeholder="0"
+                          value={
+                            formData.debt.other.amount === -1
+                              ? null
+                              : formData.debt.other.amount
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
                     </div>
-                    <input
-                      type="number"
-                      name="debt.medical.amount"
-                      placeholder="0"
-                      value={
-                        formData.budget.housing === -1
-                          ? null
-                          : formData.budget.housing
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
-                    />
-                  </div>
-                  <label
-                    htmlFor="medicalInterestRate"
-                    className="block mt-5 text-sm font-medium leading-6 text-n-15"
-                  >
-                    Interest Rate
-                  </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <span className="text-n-3 sm:text-sm">$</span>
+                    
+                    <div className="flex-1">
+                      <label
+                        htmlFor="medicalInterestRate"
+                        className="block text-sm font-medium leading-6 text-n-15"
+                      >
+                        Interest Rate
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <input
+                          type="number"
+                          name="debt.medical.rate"
+                          placeholder="0"
+                          value={
+                            formData.debt.medical.rate === -1
+                              ? null
+                              : formData.debt.medical.rate
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="studentInterestRate"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Interest Rate
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <input
+                          type="number"
+                          name="debt.student.rate"
+                          placeholder="0"
+                          value={
+                            formData.debt.student.rate === -1
+                              ? null
+                              : formData.debt.student.rate
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="creditInterestRate"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Interest Rate
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <input
+                          type="number"
+                          name="debt.credit.rate"
+                          placeholder="0"
+                          value={
+                            formData.debt.credit.rate === -1
+                              ? null
+                              : formData.debt.credit.rate
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
+                      <label
+                        htmlFor="otherInterestRate"
+                        className="block mt-5 text-sm font-medium leading-6 text-n-15"
+                      >
+                        Interest Rate
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <input
+                          type="number"
+                          name="debt.other.rate"
+                          placeholder="0"
+                          value={
+                            formData.debt.other.rate === -1
+                              ? null
+                              : formData.debt.other.rate
+                          }
+                          className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
+                          onChange={handleChange}
+                          min="0"
+                        />
+                      </div>
                     </div>
-                    <input
-                      type="number"
-                      name="debt.medical.rate"
-                      placeholder="0"
-                      value={
-                        formData.debt.rate === -1
-                          ? null
-                          : formData.debt.rate
-                      }
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-n-15 ring-1 ring-inset ring-n-4 placeholder:text-n-3 focus:ring-2 focus:ring-inset focus:ring-n-15 sm:text-sm sm:leading-6"
-                      onChange={handleChange}
-                      min="0"
-                    />
                   </div>
                 </>
               )}
