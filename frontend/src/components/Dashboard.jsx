@@ -50,16 +50,21 @@ const Dashboard = () => {
   return (
     <div className="relative overflow-hidden bg-n-15 text-white min-h-screen flex flex-col items-center">
       <div className="w-full flex flex-col items-center p-8">
-        <div className="bg-n-15 p-4 mb-8 border rounded-2xl">
+        <div className="bg-n-15 p-4 mb-8 border rounded-2xl max-w-4xl">
+          <h2 className="text-3xl font-semibold mb-4 text-center text-color-8">
+            Insights
+          </h2>
           {selectedRecommendation ? (
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-semibold mb-2">
                 {selectedRecommendation.title}
               </h2>
-              <p className="mb-4">{selectedRecommendation.description}</p>
+              <p className="mb-4 text-white font-light text-center">
+                {selectedRecommendation.description}
+              </p>
               <a
                 href={selectedRecommendation.link}
-                className="text-link underline"
+                className="text-link underline hover:text-color-8 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -68,11 +73,9 @@ const Dashboard = () => {
             </div>
           ) : (
             <div className="flex flex-col items-center">
-              <h2 className="text-3xl font-semibold mb-2 text-center text-color-8">
-                Insights
-              </h2>
               <p className="font-medium mb-4 mx-auto text-center">
-                Select a recommendation from below to learn more about your financial options!
+                Select a recommendation from below to learn more about your
+                financial options!
               </p>
               <div className="bg-card-background p-4 rounded-lg shadow-md border border-card-border">
                 <Pie data={data2} />
@@ -81,7 +84,7 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div className="w-full max-w-4xl bg-n-15 p-4 border rounded-2xl">
+        <div className="w-full max-w-4xl bg-n-15 p-6 border rounded-2xl">
           <h2 className="text-3xl font-semibold mb-2 text-center text-color-8">
             Recommendations
           </h2>
@@ -94,7 +97,7 @@ const Dashboard = () => {
               <RecommendationCard
                 key={index}
                 title={recommendation.title}
-                content={recommendation.description}
+                content={recommendation.shortDescription}
                 isSelected={
                   selectedRecommendation?.title === recommendation.title
                 }
