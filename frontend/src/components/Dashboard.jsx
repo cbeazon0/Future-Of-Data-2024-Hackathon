@@ -18,7 +18,7 @@ const Dashboard = () => {
   const location = useLocation();
   const { data } = location.state || {}; // Retrieve data passed from form submission
   const [recommendations, setRecommendations] = useState([]); // State to hold processed recommendations
-  const { selectedRecommendation, setSelectedRecommendation } = useState(null);
+  const [selectedRecommendation, setSelectedRecommendation] = useState(null); // State to hold the selected recommendation
 
   const data2 = {
     labels: ["Category A", "Category B", "Category C"],
@@ -62,38 +62,49 @@ const Dashboard = () => {
     }
   }, [data]); // Effect runs only when `data` changes
 
-  const handleRecommendationClick = (recommendation) => {
-    if (selectedRecommendation === recommendation) {
-      setSelectedRecommendation(null);
-    } else {
-      setSelectedRecommendation(recommendation);
-    }
-  };
-
   return (
     <div className="min-h-90">
       {/* Top Section */}
-      <div className="relative overflow-hidden bg-n-15 pt-12 min-h-120">
+      <div className="relative overflow-hidden bg-n-15 pt-8 pb-4 min-h-120">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold mb-4 text-center text-white">
             Statistics and Insights
           </h1>
-          <div className="bg-n-15 rounded-lg shadow-md border-1 border-n-3">
-            {/* Two-column layout */}
-            <div className="flex flex-col md:flex-row items-center justify-center">
-              <div className="w-full md:w-1/2 flex justify-center">
-                <div className="w-64 h-64 bg-n-15 rounded-full flex items-center justify-center">
-                  <Pie data={data2} />
+          <div className="bg-n-15 rounded-lg shadow-md border-1 border-n-3 p-4">
+            {/* Display selected recommendation or the default chart */}
+            {selectedRecommendation ? (
+              <div className="flex flex-col md:flex-row items-center justify-center">
+                <div className="w-full md:w-1/2 p-4">
+                  <h2 className="text-xl font-semibold mb-2 text-white">
+                    {selectedRecommendation.title}
+                  </h2>
+                  <p className="mb-4 text-white">{selectedRecommendation.description}</p>
+                  <a
+                    href={selectedRecommendation.link}
+                    className="text-blue-500 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more
+                  </a>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 p-4">
-                <h2 className="text-xl font-semibold mb-2">Insights</h2>
-                <p>
-                  Here you can display additional information or insights based
-                  on the data.
-                </p>
+            ) : (
+              <div className="flex flex-col md:flex-row items-center justify-center">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <div className="w-64 h-64 bg-n-15 rounded-full flex items-center justify-center">
+                    <Pie data={data2} />
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2 p-4">
+                  <h2 className="text-xl font-semibold mb-2">Insights</h2>
+                  <p>
+                    Here you can display additional information or insights
+                    based on the data.
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -107,8 +118,16 @@ const Dashboard = () => {
                 key={index}
                 title={recommendation.title}
                 content={recommendation.description}
-                isSelected={selectedRecommendation === recommendation} // Pass selected state to card
-                onClick={() => handleRecommendationClick(recommendation)}
+                isSelected={
+                  selectedRecommendation?.title === recommendation.title
+                }
+                onClick={() =>
+                  setSelectedRecommendation(
+                    selectedRecommendation?.title === recommendation.title
+                      ? null
+                      : recommendation
+                  )
+                }
               />
             ))}
           </div>

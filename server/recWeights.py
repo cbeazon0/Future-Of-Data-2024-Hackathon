@@ -364,7 +364,8 @@ def generate_output(
                         "logic": "budgetFunc1",
                         "weight": budget1weight,
                         "chart_type": "bar",
-                        "chart_data": budget_fifty_thirty_twenty(data)
+                        # "chart_data": budget_fifty_thirty_twenty(data)
+                        "chart_data": "1"
                     },
                     "2": {
                         "title": "Create a budget to pay off debt",

@@ -50,16 +50,31 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value, dataset } = e.target;
-    const [section, key] = name.split(".");
+    const { name, value } = e.target;
+    const nameParts = name.split(".");
 
-    setFormData((prevState) => ({
-      ...prevState,
-      [section]: {
-        ...prevState[section],
-        [key]: value,
-      },
-    }));
+    if (nameParts.length === 2) {
+      const [section, key] = nameParts;
+      setFormData((prevState) => ({
+        ...prevState,
+        [section]: {
+          ...prevState[section],
+          [key]: value,
+        },
+      }));
+    } else if (nameParts.length === 3) {
+      const [section, subsection, key] = nameParts;
+      setFormData((prevState) => ({
+        ...prevState,
+        [section]: {
+          ...prevState[section],
+          [subsection]: {
+            ...prevState[section][subsection],
+            [key]: value,
+          },
+        },
+      }));
+    }
   };
 
   const handleNextStep = () => {
@@ -235,7 +250,7 @@ const Form = () => {
                     name="base.debt"
                     value={formData.base.debt}
                     onChange={handleChange}
-                    />
+                  />
 
                   <label
                     htmlFor="dependents"
@@ -275,7 +290,7 @@ const Form = () => {
                     name="budget.housing"
                     value={formData.budget.housing}
                     onChange={handleChange}
-                    />
+                  />
 
                   <FormInput
                     id="groceries"
@@ -283,7 +298,7 @@ const Form = () => {
                     name="budget.groceries"
                     value={formData.budget.groceries}
                     onChange={handleChange}
-                    />
+                  />
 
                   <FormInput
                     id="eatingOut"
@@ -291,42 +306,42 @@ const Form = () => {
                     name="budget.eatOut"
                     value={formData.budget.eatOut}
                     onChange={handleChange}
-                    />
-                    <FormInput
+                  />
+                  <FormInput
                     id="transportation"
                     label="Transportation (Gas, Public Transport)"
                     name="budget.transportation"
                     value={formData.budget.transportation}
                     onChange={handleChange}
-                    />
+                  />
                   <FormInput
                     id="healthCare"
                     label="Health Care (Insurance, Medication)"
                     name="budget.heathCare"
                     value={formData.budget.heathCare}
                     onChange={handleChange}
-                    />
+                  />
                   <FormInput
                     id="insurance"
                     label="Personal Insurance (Life, Auto, Home)"
                     name="budget.insurance"
                     value={formData.budget.insurance}
                     onChange={handleChange}
-                    />
+                  />
                   <FormInput
                     id="otherNeeds"
                     label="Other Needs (Phone, Internet, etc.)"
                     name="budget.otherNeeds"
                     value={formData.budget.otherNeeds}
                     onChange={handleChange}
-                    />
+                  />
                   <FormInput
                     id="entertainment"
                     label="Entertainment"
                     name="budget.entertainment"
                     value={formData.budget.entertainment}
                     onChange={handleChange}
-                    />
+                  />
                 </>
               )}
               {currentStep === 3 && (
