@@ -130,7 +130,7 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden sm:h-75 pt-12 min-h-screen bg-n-15 z-0">
+    <div className="relative overflow-hidden sm:h-75 pt-12 pb-12 3xl:pb-0 min-h-screen bg-n-15 z-0">
       <div className="container mx-auto my-auto">
         <div className="flex flex-col lg:flex-row w-10/12 lg:w-11/12 bg-white rounded-xl mx-auto shadow-sm overflow-hidden shadow-n-4 ring-1 ring-n-4">
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-2 bg-no-repeat bg-cover bg-center border-b border-n-14 relative overflow-hidden sm:h-36 lg:h-auto">
@@ -365,7 +365,7 @@ const Form = () => {
                       />
                       <FormInput
                         id="studentAmount"
-                        label="Student Debt"
+                        label="Student Loan Debt"
                         name="debt.student.amount"
                         value={formData.debt.student.amount}
                         onChange={handleChange}

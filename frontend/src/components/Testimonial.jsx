@@ -11,7 +11,7 @@ const Testimonial = () => {
       name: "Logan Muhlen",
       title: "Computer Engineering Student",
       testimonial:
-        "I'm excited to see how far we can take this app, and how many people we can help. I like the idea of throwing my financial situation at the app and it provide me with my options.",
+        "I'm excited to see how far we can take this app, and how many people we can help. I like the idea of throwing my financial situation at the app and having it provide me with my options.",
       linkedInUrl: "https://www.linkedin.com/in/logan-muhlen-54a53b131/",
     },
     {

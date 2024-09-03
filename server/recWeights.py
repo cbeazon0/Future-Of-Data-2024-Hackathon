@@ -83,36 +83,35 @@ def generate_balance_tuples(debt, income, annual_interest_rate):
 
 def generate_chart_data(data):
     
-    income = int(data["base"]["income"])
-    expenses = int(data["base"]["expenses"])
-    savings = int(data["base"]["savings"])
-    debt = int(data["base"]["debt"])
-    age = int(data["personal"]["age"])
-    dependents = int(data["personal"]["dependents"])
-    housing = int(data["budget"]["housing"])
-    groceries = int(data["budget"]["groceries"])
-    eatOut = int(data["budget"]["eatOut"])
-    entertainment = int(data["budget"]["entertainment"])
-    transportation = int(data["budget"]["transportation"])
-    healthCare = int(data["budget"]["healthCare"])
-    insurance = int(data["budget"]["insurance"])
-    otherNeeds = int(data["budget"]["otherNeeds"])
-    debt_medical_amount = int(data["debt"]["medical"]["amount"])
-    debt_medical_rate = int(data["debt"]["medical"]["rate"])
-    debt_student_amount = int(data["debt"]["student"]["amount"])
-    debt_student_rate = int(data["debt"]["student"]["rate"])
-    debt_credit_amount = int(data["debt"]["credit"]["amount"])
-    debt_credit_rate = int(data["debt"]["credit"]["rate"])
-    debt_other_amount = int(data["debt"]["other"]["amount"])
-    debt_other_rate = int(data["debt"]["other"]["rate"])
-
-    #making denominators nonzero
-    if expenses == 0 or expenses == -1:
-        expenses = 1
-    if dependents == -1:
-        dependents = 0
-    if income == 0 or income == -1:
-        income = 1
+    # Convert to int and account for blanks and -1's
+    def cleanData(value):
+        if value == "-1" or value == "":
+            return 0
+        else:
+            return int(value)        
+    
+    income = cleanData(data["base"]["income"])
+    expenses = cleanData(data["base"]["expenses"])
+    savings = cleanData(data["base"]["savings"])
+    debt = cleanData(data["base"]["debt"])
+    age = cleanData(data["personal"]["age"])
+    dependents = cleanData(data["personal"]["dependents"])
+    housing = cleanData(data["budget"]["housing"])
+    groceries = cleanData(data["budget"]["groceries"])
+    eatOut = cleanData(data["budget"]["eatOut"])
+    entertainment = cleanData(data["budget"]["entertainment"])
+    transportation = cleanData(data["budget"]["transportation"])
+    healthCare = cleanData(data["budget"]["healthCare"])
+    insurance = cleanData(data["budget"]["insurance"])
+    otherNeeds = cleanData(data["budget"]["otherNeeds"])
+    debt_medical_amount = cleanData(data["debt"]["medical"]["amount"])
+    debt_medical_rate = cleanData(data["debt"]["medical"]["rate"])
+    debt_student_amount = cleanData(data["debt"]["student"]["amount"])
+    debt_student_rate = cleanData(data["debt"]["student"]["rate"])
+    debt_credit_amount = cleanData(data["debt"]["credit"]["amount"])
+    debt_credit_rate = cleanData(data["debt"]["credit"]["rate"])
+    debt_other_amount = cleanData(data["debt"]["other"]["amount"])
+    debt_other_rate = cleanData(data["debt"]["other"]["rate"])
     
     deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
@@ -155,7 +154,14 @@ def generate_chart_data(data):
 
 
 def weight(data):
-    print(data)
+    
+    # Convert to int and account for blanks and -1's
+    def cleanData(value):
+        if value == "-1" or value == "":
+            return 0
+        else:
+            return int(value) 
+        
     budget1weight = 0 # 50/30/20 - catchall for budgeting
     budget2weight = 0 # significant debt
     budget3weight = 0 # decent income/expenses - older age - retirement oriented
@@ -167,36 +173,28 @@ def weight(data):
     debt6weight = 0 # educational for any debt type - those with debt < 5% annual income should have this in their list
     debt7weight = 0 # educational for any debt type - those with debt > 5% annual income should have this in their list
 
-    income = int(data["base"]["income"])
-    expenses = int(data["base"]["expenses"])
-    savings = int(data["base"]["savings"])
-    debt = int(data["base"]["debt"])
-    age = int(data["personal"]["age"])
-    dependents = int(data["personal"]["dependents"])
-    housing = int(data["budget"]["housing"])
-    groceries = int(data["budget"]["groceries"])
-    eatOut = int(data["budget"]["eatOut"])
-    entertainment = int(data["budget"]["entertainment"])
-    transportation = int(data["budget"]["transportation"])
-    healthCare = int(data["budget"]["healthCare"])
-    insurance = int(data["budget"]["insurance"])
-    otherNeeds = int(data["budget"]["otherNeeds"])
-    debt_medical_amount = int(data["debt"]["medical"]["amount"])
-    debt_medical_rate = int(data["debt"]["medical"]["rate"])
-    debt_student_amount = int(data["debt"]["student"]["amount"])
-    debt_student_rate = int(data["debt"]["student"]["rate"])
-    debt_credit_amount = int(data["debt"]["credit"]["amount"])
-    debt_credit_rate = int(data["debt"]["credit"]["rate"])
-    debt_other_amount = int(data["debt"]["other"]["amount"])
-    debt_other_rate = int(data["debt"]["other"]["rate"])
-
-    #making denominators nonzero
-    if expenses == 0 or expenses == -1:
-        expenses = 1
-    if dependents == -1:
-        dependents = 0
-    if income == 0 or income == -1:
-        income = 1
+    income = cleanData(data["base"]["income"])
+    expenses = cleanData(data["base"]["expenses"])
+    savings = cleanData(data["base"]["savings"])
+    debt = cleanData(data["base"]["debt"])
+    age = cleanData(data["personal"]["age"])
+    dependents = cleanData(data["personal"]["dependents"])
+    housing = cleanData(data["budget"]["housing"])
+    groceries = cleanData(data["budget"]["groceries"])
+    eatOut = cleanData(data["budget"]["eatOut"])
+    entertainment = cleanData(data["budget"]["entertainment"])
+    transportation = cleanData(data["budget"]["transportation"])
+    healthCare = cleanData(data["budget"]["healthCare"])
+    insurance = cleanData(data["budget"]["insurance"])
+    otherNeeds = cleanData(data["budget"]["otherNeeds"])
+    debt_medical_amount = cleanData(data["debt"]["medical"]["amount"])
+    debt_medical_rate = cleanData(data["debt"]["medical"]["rate"])
+    debt_student_amount = cleanData(data["debt"]["student"]["amount"])
+    debt_student_rate = cleanData(data["debt"]["student"]["rate"])
+    debt_credit_amount = cleanData(data["debt"]["credit"]["amount"])
+    debt_credit_rate = cleanData(data["debt"]["credit"]["rate"])
+    debt_other_amount = cleanData(data["debt"]["other"]["amount"])
+    debt_other_rate = cleanData(data["debt"]["other"]["rate"])
     
     deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
@@ -349,6 +347,7 @@ def generate_output(
 ):
     recommendations = {
     "recommendations": {
+        "userInput": data,
         "Budget": {
             "title": "Budget",
             "shortDescription": "Explore effective budgeting methods to manage your finances.",
