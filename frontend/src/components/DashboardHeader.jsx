@@ -25,7 +25,7 @@ const FormHeader = () => {
           </a>
         </div>
         <div className="absolute inset-x-0 flex justify-center items-center">
-          <h1 className="text-3xl font-bold text-color-8">Relaxed Finance</h1>
+          <h1 className="text-3xl font-bold text-white">Your Dashboard</h1>
         </div>
         <div className="lg:flex lg:flex-1 lg:justify-end z-20">
           <a

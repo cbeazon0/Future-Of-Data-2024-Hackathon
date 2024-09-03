@@ -1,12 +1,17 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RecommendationCard from "./subComponents/RecommendationCard";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+// Register components
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
   const location = useLocation();
-  const { data } = location.state || {}; // Retrieve data passed from form submission
-  const [recommendations, setRecommendations] = useState([]); // State to hold processed recommendations
-  const [selectedRecommendation, setSelectedRecommendation] = useState(null); // State to hold the selected recommendation
+  const { data } = location.state || {};
+  const [recommendations, setRecommendations] = useState([]);
+  const [selectedRecommendation, setSelectedRecommendation] = useState(null);
 
   const data2 = {
     labels: ["Category A", "Category B", "Category C"],
@@ -20,84 +25,70 @@ const Dashboard = () => {
     ],
   };
 
-  console.log("Data:", data);
-
   useEffect(() => {
-    // Function to process recommendation data
     const processRecommendations = (data) => {
       let finalRecommendations = [];
 
       for (const category in data) {
         const resources = data[category].resources;
-
         const filteredResources = Object.values(resources).filter(
           (resource) => resource.weight > 0
         );
-
         finalRecommendations = finalRecommendations.concat(filteredResources);
       }
 
       finalRecommendations.sort((a, b) => b.weight - a.weight);
-
-      return finalRecommendations;
+      return finalRecommendations.slice(0, 5); // Get top 5 recommendations
     };
 
     if (data) {
-      // Process recommendations only once when data is available
       const processedRecommendations = processRecommendations(data);
       setRecommendations(processedRecommendations);
-      console.log("Filtered Recommendations:", processedRecommendations);
     }
-  }, [data]); // Effect runs only when `data` changes
+  }, [data]);
 
   return (
-    <div className="min-h-90">
-      {/* Top Section */}
-      <div className="relative overflow-hidden bg-n-15 pt-8 pb-4 min-h-120">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-4 text-center text-white">
-            Statistics and Insights
-          </h1>
-          <div className="bg-n-7 rounded-lg shadow-md border-1 border-white p-4">
-            {selectedRecommendation ? (
-              <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="w-full md:w-1/2 p-4">
-                  <h2 className="text-xl font-semibold mb-2 text-white">
-                    {selectedRecommendation.title}
-                  </h2>
-                  <p className="mb-4 text-white">
-                    {selectedRecommendation.description}
-                  </p>
-                  <a
-                    href={selectedRecommendation.link}
-                    className="text-color-8 underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more
-                  </a>
-                </div>
+    <div className="relative overflow-hidden bg-n-15 text-white min-h-screen flex flex-col items-center">
+      <div className="w-full flex flex-col items-center p-8">
+        <div className="bg-n-15 p-4 mb-8 border rounded-2xl">
+          {selectedRecommendation ? (
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl font-semibold mb-2">
+                {selectedRecommendation.title}
+              </h2>
+              <p className="mb-4">{selectedRecommendation.description}</p>
+              <a
+                href={selectedRecommendation.link}
+                className="text-link underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more
+              </a>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl font-semibold mb-2 text-center text-color-8">
+                Insights
+              </h2>
+              <p className="font-medium mb-4 mx-auto text-center">
+                Select a recommendation from below to learn more about your financial options!
+              </p>
+              <div className="bg-card-background p-4 rounded-lg shadow-md border border-card-border">
+                <Pie data={data2} />
               </div>
-            ) : (
-              <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="w-full md:w-1/2 p-4">
-                  <h2 className="text-xl font-semibold mb-2 text-white">
-                    Insights
-                  </h2>
-                  <p className="text-white">
-                    Here you can display additional information or insights
-                    based on the data.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </div>
 
-      {/* Bottom Section */}
-      <div className="relative overflow-hidden bg-n-15 min-h-155 pb-4">
-        <div className="container mx-auto px-4 bg-n-3 p-4 rounded-lg shadow-md border-1 border-white">
+        <div className="w-full max-w-4xl bg-n-15 p-4 border rounded-2xl">
+          <h2 className="text-3xl font-semibold mb-2 text-center text-color-8">
+            Recommendations
+          </h2>
+          <p className="font-medium mb-4 text-center">
+            Our currated recommendations for you based on the information you've
+            provided!
+          </p>
           <div className="grid grid-cols-1 gap-4">
             {recommendations.map((recommendation, index) => (
               <RecommendationCard

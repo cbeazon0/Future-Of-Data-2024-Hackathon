@@ -12,6 +12,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        'bg-dark': '#0E1011',
+        'card-background': '#ADA8C3',
+        'card-border': '#757185',
+        'text-primary': '#E0E0E0',
+        'text-link': '#1E90FF',
         color: {
           1: "#AC6AFF",
           2: "#FFC876",
