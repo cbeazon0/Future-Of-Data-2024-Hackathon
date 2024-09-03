@@ -363,7 +363,7 @@ def generate_output(
                         "The 50/30/20 rule offers a straightforward approach to budgeting by dividing your after-tax income into three categories: "
                         "50% for essential needs like housing, utilities, and groceries, 30% for discretionary spending on things you enjoy, such as dining out or hobbies, "
                         "and 20% towards savings and debt repayment. By adhering to this balanced budget, you can ensure that you cover necessary expenses, "
-                        "enjoy your life, and still make progress on your financial goals. Learn more about how to apply this method with NerdWallet's calculator."
+                        "enjoy your life, and still make progress on your financial goals. \n\nLearn more about how to apply this method with NerdWallet's calculator."
                     ),
                     "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
                     "logic": "budgetFunc1",
@@ -379,7 +379,7 @@ def generate_output(
                         "Explore budgeting techniques such as the snowball method, which prioritizes paying off the smallest debts first to build momentum, "
                         "or the avalanche method, which focuses on paying off debts with the highest interest rates to save money over time. "
                         "You can also adapt the 50/30/20 rule by dedicating more than 20% of your income towards debt repayment. "
-                        "This guide provides insights into these methods and how to tailor a budget that fits your specific debt situation."
+                        "\n\nThis guide provides insights into these methods and how to tailor a budget that fits your specific debt situation."
                     ),
                     "link": "https://www.lendingtree.com/personal/budget-to-pay-off-debt/",
                     "logic": "budgetFunc2",
@@ -392,7 +392,7 @@ def generate_output(
                         "Retirement planning requires careful budgeting to ensure you have enough saved to enjoy your golden years. "
                         "The zero-based budgeting method helps you allocate every dollar of your income to a specific expense, savings goal, or debt repayment, "
                         "ensuring that your income minus expenses equals zero. This method forces you to be intentional about every spending decision, "
-                        "making it an effective tool for maximizing savings and planning for retirement. Discover more about how to implement zero-based budgeting and set yourself up for a secure retirement."
+                        "making it an effective tool for maximizing savings and planning for retirement. \n\nDiscover more about how to implement zero-based budgeting and set yourself up for a secure retirement."
                     ),
                     "link": "https://www.ramseysolutions.com/budgeting/how-to-make-a-zero-based-budget",
                     "logic": "budgetFunc3",
@@ -411,7 +411,7 @@ def generate_output(
                         "Medical debt can be a significant burden, especially if unexpected health issues arise. "
                         "Organizations like UNDUE Medical Debt provide assistance to individuals who are struggling to manage their medical bills. "
                         "By accessing these resources, you may find options for debt relief, forgiveness programs, or restructuring that can help reduce your financial stress. "
-                        "Explore UNDUE's resources to see if you qualify for support and to understand how to navigate medical debt relief."
+                        "\n\nExplore UNDUE's resources to see if you qualify for support and to understand how to navigate medical debt relief."
                     ),
                     "link": "https://www.unduemedicaldebt.org/medical-debt-resources/",
                     "logic": "debtFunction1",
@@ -424,7 +424,7 @@ def generate_output(
                         "Student loans can be overwhelming, but there are federal loan forgiveness programs that might help reduce or even eliminate your debt. "
                         "Depending on your career path, income level, and repayment history, you could qualify for programs such as Public Service Loan Forgiveness (PSLF) or income-driven repayment plan forgiveness. "
                         "These options can significantly lower your monthly payments or forgive your remaining balance after a set number of years. "
-                        "Visit the Department of Education's website to learn about the specific qualifications and how to apply for these relief options."
+                        "\n\nVisit the Department of Education's website to learn about the specific qualifications and how to apply for these relief options."
                     ),
                     "link": "https://studentaid.gov/manage-loans/forgiveness-cancellation/debt-relief-info",
                     "logic": "debtFunction2",
@@ -437,7 +437,7 @@ def generate_output(
                         "If you don't qualify for loan forgiveness, or need a more manageable payment plan, an income-driven repayment (IDR) plan might be right for you. "
                         "IDR plans adjust your monthly student loan payments based on your income and family size, ensuring that payments remain affordable. "
                         "After a certain number of years of qualifying payments, any remaining loan balance may be forgiven. "
-                        "Learn how IDR plans work, how they can reduce your payment burden, and how to apply on the Federal Student Aid website."
+                        "\n\nLearn how IDR plans work, how they can reduce your payment burden, and how to apply on the Federal Student Aid website."
                     ),
                     "link": "https://studentaid.gov/manage-loans/repayment/plans/income-driven",
                     "logic": "debtFunction3",
@@ -450,7 +450,7 @@ def generate_output(
                         "Credit card debt can quickly become unmanageable due to high-interest rates. "
                         "Debt relief programs, such as those offered by Accredited Debt Relief, can help you consolidate your credit card debt, "
                         "potentially lowering your interest rates and monthly payments. These programs can provide a structured plan to pay off your debt faster, "
-                        "reduce your financial stress, and avoid the pitfalls of high-interest payments. Find out more about how Accredited Debt Relief works and if it's a good fit for your situation."
+                        "reduce your financial stress, and avoid the pitfalls of high-interest payments. \n\nFind out more about how Accredited Debt Relief works and if it's a good fit for your situation."
                     ),
                     "link": "https://www.accrediteddebtrelief.com/free-quote/ocp/aff/questionnaire/debt_amount/?affiliate_id=152&campaign_id=2717&click_id=cr5r41t296uce9m01p5g&offer_id=13&request_id=2-cr5r41t296uce9m01p70&subid1=b775de06fb5e44c7844f801ccb908673&subid2=&subid3=&subid4=&subid5=2717&utm_campaign=14-2717&utm_medium=affiliate&utm_source=152#debt_amount",
                     "logic": "debtFunction4",
@@ -463,7 +463,7 @@ def generate_output(
                         "Whether you have medical, credit card, or other forms of personal debt, a debt relief program might be a viable option for you. "
                         "National Debt Relief specializes in consolidating debts, which can help you manage and reduce your monthly payments. "
                         "This approach can simplify your finances by combining multiple payments into one and potentially lowering your overall interest rates. "
-                        "Learn more about how National Debt Relief works, the types of debt it covers, and how it can help you regain control of your financial life."
+                        "\n\nLearn more about how National Debt Relief works, the types of debt it covers, and how it can help you regain control of your financial life."
                     ),
                     "link": "https://www.nationaldebtrelief.com/apply/",
                     "logic": "debtFunction5",
@@ -476,7 +476,7 @@ def generate_output(
                         "Before choosing a debt relief method, it's essential to understand the nature of your debt and the available options. "
                         "Resources like NerdWallet offer comprehensive guides on debt management, covering various strategies such as debt consolidation, credit counseling, and debt settlement. "
                         "It's also crucial to be aware of potential scams and predatory practices in the debt relief industry. "
-                        "By educating yourself, you can make informed decisions that are best for your financial health. Check out NerdWallet's resources to get started."
+                        "By educating yourself, you can make informed decisions that are best for your financial health. \n\nCheck out NerdWallet's resources to get started."
                     ),
                     "link": "https://www.nerdwallet.com/article/finance/find-debt-relief",
                     "logic": "debtFunction6",
@@ -489,7 +489,7 @@ def generate_output(
                         "Credit card debt can be stressful, and managing it alone may seem overwhelming. "
                         "Consulting with a financial professional or debt counselor can provide you with personalized strategies and support to manage and reduce your credit card debt. "
                         "These experts can help you develop a plan that fits your financial situation, negotiate with creditors, and offer guidance on improving your credit score. "
-                        "Learn more about how to find a reputable debt counselor and the benefits of professional assistance."
+                        "\n\nLearn more about how to find a reputable debt counselor and the benefits of professional assistance."
                     ),
                     "link": "https://www.accrediteddebtrelief.com",
                     "logic": "debtFunction7",
