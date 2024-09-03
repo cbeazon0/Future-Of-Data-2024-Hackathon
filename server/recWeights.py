@@ -372,7 +372,7 @@ def generate_output(
                             "If you are carrying significant debt, it's crucial to have a strategic plan to pay it off. "
                             "Explore budgeting techniques such as the snowball method, which prioritizes paying off the smallest debts first to build momentum, "
                             "or the avalanche method, which focuses on paying off debts with the highest interest rates to save money over time. "
-                            "You can also adapt the 50/30/20 rule by dedicating more than 20%% of your income towards debt repayment. "
+                            "You can also adapt the 50/30/20 rule by dedicating more than 20% of your income towards debt repayment. "
                             "This guide provides insights into these methods and how to tailor a budget that fits your specific debt situation."
                         ),
                         "link": "https://www.lendingtree.com/personal/budget-to-pay-off-debt/",

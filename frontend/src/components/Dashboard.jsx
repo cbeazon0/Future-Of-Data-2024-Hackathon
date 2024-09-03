@@ -1,18 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RecommendationCard from "./subComponents/RecommendationCard";
-import { Pie } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  CategoryScale,
-} from "chart.js";
-
-// Register required components
-ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
 const Dashboard = () => {
   const location = useLocation();
@@ -70,18 +58,19 @@ const Dashboard = () => {
           <h1 className="text-3xl font-bold mb-4 text-center text-white">
             Statistics and Insights
           </h1>
-          <div className="bg-n-15 rounded-lg shadow-md border-1 border-n-3 p-4">
-            {/* Display selected recommendation or the default chart */}
+          <div className="bg-n-7 rounded-lg shadow-md border-1 border-white p-4">
             {selectedRecommendation ? (
               <div className="flex flex-col md:flex-row items-center justify-center">
                 <div className="w-full md:w-1/2 p-4">
                   <h2 className="text-xl font-semibold mb-2 text-white">
                     {selectedRecommendation.title}
                   </h2>
-                  <p className="mb-4 text-white">{selectedRecommendation.description}</p>
+                  <p className="mb-4 text-white">
+                    {selectedRecommendation.description}
+                  </p>
                   <a
                     href={selectedRecommendation.link}
-                    className="text-blue-500 underline"
+                    className="text-color-8 underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -91,14 +80,11 @@ const Dashboard = () => {
               </div>
             ) : (
               <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="w-full md:w-1/2 flex justify-center">
-                  <div className="w-64 h-64 bg-n-15 rounded-full flex items-center justify-center">
-                    <Pie data={data2} />
-                  </div>
-                </div>
                 <div className="w-full md:w-1/2 p-4">
-                  <h2 className="text-xl font-semibold mb-2">Insights</h2>
-                  <p>
+                  <h2 className="text-xl font-semibold mb-2 text-white">
+                    Insights
+                  </h2>
+                  <p className="text-white">
                     Here you can display additional information or insights
                     based on the data.
                   </p>
@@ -111,7 +97,7 @@ const Dashboard = () => {
 
       {/* Bottom Section */}
       <div className="relative overflow-hidden bg-n-15 min-h-155 pb-4">
-        <div className="container mx-auto px-4 bg-n-15 p-4 rounded-lg shadow-md border-1 border-n-3">
+        <div className="container mx-auto px-4 bg-n-3 p-4 rounded-lg shadow-md border-1 border-white">
           <div className="grid grid-cols-1 gap-4">
             {recommendations.map((recommendation, index) => (
               <RecommendationCard

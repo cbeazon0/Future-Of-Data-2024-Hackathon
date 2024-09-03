@@ -84,15 +84,15 @@ export default {
     },
   },
   plugins: [
-    function({ addBase, config }) {
+    function ({ addBase, config }) {
       addBase({
         "input[type='number']::-webkit-outer-spin-button": {
-          "WebkitAppearance": "none",
-          "margin": 0,
+          WebkitAppearance: "none",
+          margin: 0,
         },
         "input[type='number']::-webkit-inner-spin-button": {
-          "WebkitAppearance": "none",
-          "margin": 0,
+          WebkitAppearance: "none",
+          margin: 0,
         },
         "input[type='number']": {
           "-moz-appearance": "textfield", // Firefox
