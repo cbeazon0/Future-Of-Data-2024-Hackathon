@@ -335,6 +335,7 @@ def weight(data):
     return input
 
 def generate_output(
+    data, 
     budget1weight,
     budget2weight,
     budget3weight,
@@ -363,8 +364,8 @@ def generate_output(
                         "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
                         "logic": "budgetFunc1",
                         "weight": budget1weight,
-                        "chart_type": "bar",
-                        "chart_data": "budget_fifty_thirty_twenty(data)"
+                        "chart_type": "donut",
+                        "chart_data": "  {name: 'Travel',amount: 6730,share: '32.1%',color: 'bg-cyan-500',}"
                     },
                     "2": {
                         "title": "Create a budget to pay off debt",
