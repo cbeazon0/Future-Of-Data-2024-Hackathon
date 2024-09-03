@@ -14,7 +14,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 def getData():
     data = request.get_json()
     input = weight(data)
-    outputData = generate_output(input[0],input[1],input[2],input[3],input[4],input[5],input[6],input[7],input[8],input[9])
+    outputData = generate_output(data, input[0],input[1],input[2],input[3],input[4],input[5],input[6],input[7],input[8],input[9])
     return jsonify(outputData), 200
     
 if __name__ == "__main__":
