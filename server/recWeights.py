@@ -204,6 +204,10 @@ def weight(data):
 
     if deepExpenses >= expenses:
         expenses = deepExpenses
+    if expenses == 0 or expenses == -1:
+        expenses = 1
+    if income == 0 or income == -1:
+        income = 1
 
     budget1weight = 0
     budget2weight = 0
