@@ -2,34 +2,33 @@
     "recommendations": {
         "userInput": {
             "base": {
-                "income": "1",
-                "expenses": "1",
-                "savings": -1,
-                "debt": -1
+                "income": "2000",
+                "expenses": "1000",
+                "savings": "0",
+                "debt": "1000000"
             },
             "personal": {
-                "age": "1",
+                "age": "21",
                 "dependents": -1
             },
             "budget": {
-                "housing": "5",
-                "groceries": "5",
-                "eatOut": "5",
-                "entertainment": "5",
-                "transportation": "5",
+                "housing": "800",
+                "groceries": "100",
+                "eatOut": "100",
+                "entertainment": -1,
+                "transportation": -1,
                 "healthCare": -1,
-                "insurance": "3",
-                "otherNeeds": "5",
-                "heathCare": "5"
+                "insurance": -1,
+                "otherNeeds": -1
             },
             "debt": {
                 "medical": {
-                    "amount": "5",
-                    "rate": "5"
+                    "amount": "1000000",
+                    "rate": -1
                 },
                 "student": {
-                    "amount": "5",
-                    "rate": "5"
+                    "amount": -1,
+                    "rate": -1
                 },
                 "credit": {
                     "amount": "5",
@@ -61,7 +60,7 @@
                     "description": "If you are carrying significant debt, it's crucial to have a strategic plan to pay it off. Explore budgeting techniques such as the snowball method, which prioritizes paying off the smallest debts first to build momentum, or the avalanche method, which focuses on paying off debts with the highest interest rates to save money over time. You can also adapt the 50/30/20 rule by dedicating more than 20% of your income towards debt repayment. \n\nThis guide provides insights into these methods and how to tailor a budget that fits your specific debt situation.",
                     "link": "https://www.lendingtree.com/personal/budget-to-pay-off-debt/",
                     "logic": "budgetFunc2",
-                    "weight": 11
+                    "weight": 9
                 },
                 "3": {
                     "title": "Looking towards retirement...",
@@ -131,7 +130,7 @@
                     "description": "Credit card debt can be stressful, and managing it alone may seem overwhelming. Consulting with a financial professional or debt counselor can provide you with personalized strategies and support to manage and reduce your credit card debt. These experts can help you develop a plan that fits your financial situation, negotiate with creditors, and offer guidance on improving your credit score. \n\nLearn more about how to find a reputable debt counselor and the benefits of professional assistance.",
                     "link": "https://www.accrediteddebtrelief.com",
                     "logic": "debtFunction7",
-                    "weight": 4
+                    "weight": 5
                 }
             }
         }
