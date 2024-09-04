@@ -7,6 +7,7 @@ import {
   PencilIcon,
   LockOpenIcon
 } from "@heroicons/react/24/outline";
+import DashboardImage from "../assets/DashboardImage.png";
 
 const demo_elements = [
   {
@@ -93,7 +94,7 @@ export const Feature1 = () => {
             <div className="flex justify-center items-center">
               <img
                 alt="Product screenshot"
-                src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+                src={DashboardImage}
                 className="w-full max-w-[60rem] mx-auto rounded-xl shadow-md shadow-n-4 ring-1 ring-n-3"
               />
             </div>

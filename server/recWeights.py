@@ -379,6 +379,7 @@ def generate_output(
                     "link": "https://www.nerdwallet.com/article/finance/nerdwallet-budget-calculator",
                     "logic": "budgetFunc1",
                     "weight": budget1weight,
+                    "cardValue": "44% of Americans surveyed could afford a $1,000 emergency expense.", "cardLink": "https://thehill.com/blogs/blog-briefing-room/4428193-most-americans-cant-afford-1000-emergency-survey/#:~:text=(KTLA)%20%E2%80%94%20A%20%241%2C000%20unexpected,afford%20a%20%241%2C000%20emergency%20expense",
                     "chart_type": "donut",
                     "chart_data": "  {name: 'Travel',amount: 6730,share: '32.1%',color: 'bg-cyan-500',}"
                 },
@@ -394,7 +395,9 @@ def generate_output(
                     ),
                     "link": "https://www.lendingtree.com/personal/budget-to-pay-off-debt/",
                     "logic": "budgetFunc2",
-                    "weight": budget2weight
+                    "weight": budget2weight,
+                    "cardValue": "77% of American households have at least some type of debt.",
+                    "cardLink": "https://www.ramseysolutions.com/debt/average-american-debt",
                 },
                 "3": {
                     "title": "Looking towards retirement...",
@@ -407,7 +410,9 @@ def generate_output(
                     ),
                     "link": "https://www.ramseysolutions.com/budgeting/how-to-make-a-zero-based-budget",
                     "logic": "budgetFunc3",
-                    "weight": budget3weight
+                    "weight": budget3weight,
+                    "cardValue": "67% of Americans have a retirement account but only 34% feel on track for retirement.",
+                    "cardLink": "https://www.fool.com/research/average-retirement-savings/",
                 }
             }
         },
@@ -426,7 +431,9 @@ def generate_output(
                     ),
                     "link": "https://www.unduemedicaldebt.org/medical-debt-resources/",
                     "logic": "debtFunction1",
-                    "weight": debt1weight
+                    "weight": debt1weight,
+                    "cardValue": "1 in 12 americans owe medical debt",
+                    "cardLink": "https://www.healthsystemtracker.org/brief/the-burden-of-medical-debt-in-the-united-states/",
                 },
                 "2": {
                     "title": "Paying off your student loans with loan forgiveness programs",
@@ -439,7 +446,9 @@ def generate_output(
                     ),
                     "link": "https://studentaid.gov/manage-loans/forgiveness-cancellation/debt-relief-info",
                     "logic": "debtFunction2",
-                    "weight": debt2weight
+                    "weight": debt2weight,
+                    "cardValue": "Approximately 13% of all Americans had federal student loan debt in 2021",
+                    "cardLink": "https://www.bestcolleges.com/research/how-many-people-have-student-loans/",
                 },
                 "3": {
                     "title": "Paying off your student loans with Income-Driven Repayment",
@@ -452,7 +461,9 @@ def generate_output(
                     ),
                     "link": "https://studentaid.gov/manage-loans/repayment/plans/income-driven",
                     "logic": "debtFunction3",
-                    "weight": debt3weight
+                    "weight": debt3weight,
+                    "cardValue": "Only about 1 in 10 qualify for full blown forgiveness and need to consider other options",
+                    "cardLink": "https://www.ed.gov/news/press-releases/biden-harris-administration-announces-additional-77-billion-approved-student-debt-relief-160000-borrowers",
                 },
                 "4": {
                     "title": "Paying off your credit card debt",
@@ -465,7 +476,9 @@ def generate_output(
                     ),
                     "link": "https://www.accrediteddebtrelief.com/free-quote/ocp/aff/questionnaire/debt_amount/?affiliate_id=152&campaign_id=2717&click_id=cr5r41t296uce9m01p5g&offer_id=13&request_id=2-cr5r41t296uce9m01p70&subid1=b775de06fb5e44c7844f801ccb908673&subid2=&subid3=&subid4=&subid5=2717&utm_campaign=14-2717&utm_medium=affiliate&utm_source=152#debt_amount",
                     "logic": "debtFunction4",
-                    "weight": debt4weight
+                    "weight": debt4weight,
+                    "cardValue": "3 in 5 Americans (61%) are in credit card debt",
+                    "cardLink": "https://finance.yahoo.com/news/jaw-dropping-stats-state-credit-130022967.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAADVZBBZvJ-J_EpMls_gGCGqdIF68Lx7LLpqQg0Do54qb-wzqe41gVY5pWSFckg62g0gNo7J15vvTuEh8QlzzWqrq2GgdLWtTBzsS7KN1TK1XD5ML2kJ8_oGmbcL2QhIyuYLm3qt1Lssf2zWFmwC_CYNF-MZLpaSJtW6wvHl1Xq4h",
                 },
                 "5": {
                     "title": "Paying off your debt",
@@ -478,7 +491,9 @@ def generate_output(
                     ),
                     "link": "https://www.nationaldebtrelief.com/apply/",
                     "logic": "debtFunction5",
-                    "weight": debt5weight
+                    "weight": debt5weight,
+                    "cardValue": "77% of American households have at least some type of debt.",
+                    "cardLink": "https://www.ramseysolutions.com/debt/average-american-debt",
                 },
                 "6": {
                     "title": "Understanding your debt",
@@ -491,7 +506,9 @@ def generate_output(
                     ),
                     "link": "https://www.nerdwallet.com/article/finance/find-debt-relief",
                     "logic": "debtFunction6",
-                    "weight": debt6weight
+                    "weight": debt6weight,
+                    "cardValue": "77% of American households have at least some type of debt.",
+                    "cardLink": "https://www.ramseysolutions.com/debt/average-american-debt",
                 },
                 "7": {
                     "title": "Credit Card debt is stressful, talk to a professional",
@@ -504,7 +521,9 @@ def generate_output(
                     ),
                     "link": "https://www.accrediteddebtrelief.com",
                     "logic": "debtFunction7",
-                    "weight": debt7weight
+                    "weight": debt7weight,
+                    "cardValue": "Depending on the situation, debt settlement offers only a percentage of what you owe, an average about 48%",
+                    "cardLink": "https://www.investopedia.com/personal-finance/debt-settlement-cheapest-way-get-out-debt/",
                 }
             }
         }

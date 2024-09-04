@@ -180,7 +180,11 @@ const debtChartData = {
 
           {selectedRecommendation && (
             <div className="flex flex-col items-center">
-              <h2 className="text-2xl font-semibold mb-2">
+              <Card
+                value={selectedRecommendation.cardValue}
+                link={selectedRecommendation.cardLink}
+                />
+              <h2 className="text-2xl font-semibold mb-2 mt-3">
                 {selectedRecommendation.title}
               </h2>
               <p className="mb-4 text-white font-light text-center">
