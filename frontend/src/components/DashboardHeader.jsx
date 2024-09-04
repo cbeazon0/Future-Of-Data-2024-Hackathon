@@ -32,7 +32,7 @@ const FormHeader = () => {
             href="/form"
             className="text-lg font-semibold leading-6 text-white hover:text-color-8 hover:underline"
           >
-            Edit Form
+            New Form
           </a>
         </div>
       </nav>
