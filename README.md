@@ -1,14 +1,10 @@
 ## Relaxed Finance
 
-
-Name? 
-
 Relaxed Finance 
 
 ## Elevator Pitch? 
 
 Relaxed Finance was designed to give you the data, goals, and peer-reviewed sources you need to make informed decisions, reduce stress, and build a secure financial future with confidence. 
-
 
 ## Inspiration 
 
@@ -24,13 +20,14 @@ Python,
 
 ## Challenges we ran into 
 
-One of the biggest challenges we ran into was  
+One of the biggest challenges we ran into was 
 
 ## Accomplishments that we're proud of 
-
+Several of us had limited experience with backend development and were happy to create a successful system. Others of us were able to generate an efficient and visually appealing front end, of which we had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve the financial situation.
  
 
 ## What we learned 
+Throughout this project, each team member honed their webpage development skills, contributing to the creation of a dynamic and interactive webpage. This process not only involved technical development but also extensive research into various aspects of personal finance, including credit card debt relief, student loans, medical debt, budgeting, retirement planning, and saving strategies. By leveraging our foundational knowledge of finance, we aimed to develop a practical tool that not only helps people like us better understand these critical topics but also connects them with valuable resources. Our goal is to provide accessible and effective financial guidance to anyone seeking to improve their financial literacy.
 
  
 
