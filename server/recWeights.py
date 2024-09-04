@@ -113,6 +113,11 @@ def generate_chart_data(data):
     debt_other_amount = cleanData(data["debt"]["other"]["amount"])
     debt_other_rate = cleanData(data["debt"]["other"]["rate"])
     
+    if expenses == 0 or expenses == -1:
+        expenses = 1
+    if income == 0 or income == -1:
+        income = 1
+
     deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
     debtTotal = debt_medical_amount + debt_student_amount + debt_credit_amount + debt_other_amount
@@ -196,6 +201,12 @@ def weight(data):
     debt_other_amount = cleanData(data["debt"]["other"]["amount"])
     debt_other_rate = cleanData(data["debt"]["other"]["rate"])
     
+    if expenses == 0 or expenses == -1:
+        expenses = 1
+    if income == 0 or income == -1:
+        income = 1
+
+
     deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
     debtTotal = debt_medical_amount + debt_student_amount + debt_credit_amount + debt_other_amount
@@ -204,10 +215,7 @@ def weight(data):
 
     if deepExpenses >= expenses:
         expenses = deepExpenses
-    if expenses == 0 or expenses == -1:
-        expenses = 1
-    if income == 0 or income == -1:
-        income = 1
+
 
     budget1weight = 0
     budget2weight = 0
