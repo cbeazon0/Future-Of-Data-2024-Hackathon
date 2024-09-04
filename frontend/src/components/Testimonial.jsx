@@ -19,7 +19,7 @@ const Testimonial = () => {
         name: "Cameran Beason",
         title: "Mechanical Engineering Student",
         testimonial:
-          "I love the simplicity of the app. It's easy to use and has all the features I need.",
+          "I love the idea of teaching people about debt payoff strategies, budgeting, and investing.  My wish is for everyone to gain control of their finances and future!",
         linkedInUrl: "https://www.linkedin.com/in/cameran-beason/",
       },
       {
