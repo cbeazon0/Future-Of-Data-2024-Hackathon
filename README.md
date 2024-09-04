@@ -23,7 +23,7 @@ Python,
 One of the biggest challenges we ran into was 
 
 ## Accomplishments that we're proud of 
-Several of us had limited experience with backend development and were happy to create a successful system. Others of us were able to generate an efficient and visually appealing front end, of which we had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve the financial situation.
+Several of us had limited experience with backend development and were happy to create a successful system that felt expansive and cohesively developed. Others of us were able to generate an efficient and visually appealing front end, of which they had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve their financial literacy and work toawrds a brighter future.
  
 
 ## What we learned 
