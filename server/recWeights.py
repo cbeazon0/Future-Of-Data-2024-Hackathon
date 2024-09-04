@@ -205,11 +205,14 @@ def weight(data):
         expenses = 1
     if income == 0 or income == -1:
         income = 1
+    if dependents == -1:
+        dependents = 0
 
 
     deepExpenses = housing + groceries + eatOut + entertainment + transportation + healthCare + insurance + otherNeeds
     takeHome = income - expenses
     debtTotal = debt_medical_amount + debt_student_amount + debt_credit_amount + debt_other_amount
+    print(dependents,expenses)
     growthfactor = income/(dependents+1)/expenses
     povertyLine = 15000 #approx
 
