@@ -1,6 +1,4 @@
-## Relaxed Finance
-
-Relaxed Finance 
+# Relaxed Finance
 
 ## Elevator Pitch? 
 
