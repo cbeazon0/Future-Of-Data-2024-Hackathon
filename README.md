@@ -38,10 +38,10 @@ We would love to explore investing and savings accounts and add tailored recomme
 ## How to run
 Download Python 3.10.0 -> Download Node.js -> Clone the repository
 
-In the Terminal
+###In the Terminal
 Run "cd .\frontend\" -> Run "npm i" -> Run "npm run dev"
 
-Open a new Terminal and...
+###Open a new Terminal
 Run "cd .\server\" -> Run ".\venv\Scripts\activate" -> Run "Python app.py"
 
 Go to "http://localhost:5173/" and enjoy the app :)
