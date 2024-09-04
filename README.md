@@ -29,9 +29,25 @@ Several of us had limited experience with backend development and were happy to 
 ## What we learned 
 Throughout this project, each team member honed their webpage development skills, contributing to the creation of a dynamic and interactive webpage. This process not only involved technical development but also extensive research into various aspects of personal finance, including credit card debt relief, student loans, medical debt, budgeting, retirement planning, and saving strategies. By leveraging our foundational knowledge of finance, we aimed to develop a practical tool that not only helps people like us better understand these critical topics but also connects them with valuable resources. Our goal is to provide accessible and effective financial guidance to anyone seeking to improve their financial literacy.
 
-
-
 ## What's next for Relaxed Finance? 
 
 We will 100% continue to work on this after this, regardless of what place we end up in, in the hackathon.
 We would love to explore investing and savings accounts and add tailored recommendations for these areas of finance.
+
+
+## How to run
+Download Python 3.10.0
+Download Node.js
+Clone the repository
+
+In the Terminal
+Run "cd .\frontend\"
+Run "npm i"
+Run "npm run dev"
+
+Open a new Terminal and...
+Run "cd .\server\"
+Run ".\venv\Scripts\activate"
+Run "Python app.py"
+
+Go to "http://localhost:5173/" and enjoy the app :)
