@@ -17,52 +17,93 @@ const Dashboard = () => {
   const [selectedRecommendation, setSelectedRecommendation] = useState(null);
 
   const userInput = data?.userInput || {};
-  const budget = userInput?.budget || {};
-  const debt = userInput?.debt || {};
+const budget = userInput?.budget || {};
+const debt = userInput?.debt || {};
 
-  const totalIncome = userInput?.base?.income ?? 0;
-  const totalExpenses = userInput?.base?.expenses ?? 0;
-  const netIncome = totalIncome - totalExpenses;
+const totalIncome = userInput?.base?.income ?? 0;
+const totalExpenses = userInput?.base?.expenses ?? 0;
+const netIncome = totalIncome - totalExpenses;
 
-  // Expenses pie chart data
-  const expenseLabels = Object.keys(budget);
-  const expenseValues = Object.values(budget).filter((value) => value > 0);
+// Define a mapping object for custom labels
+const labelMapping = {
+  eatOut: "Eating Out (Ordering)",
+  groceries: "Groceries",
+  housing: "Housing",
+  entertainment: "Entertainment",
+  healthCare: "Health Care",
+  insurance: "Insurance",
+  otherNeeds: "Other Needs",
+  transportation: "Transportation",
+  credit: "Credit Card",
+  student: "Student Loan",
+  medical: "Medical",
+  other: "Other",
+};
 
-  const expensesChartData = {
-    labels: expenseLabels,
-    datasets: [
-      {
-        data: expenseValues,
-        backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF9F40",
-        ],
-        borderColor: "#fff",
-        borderWidth: 1,
+// Filter and map the budget entries
+const filteredBudgetEntries = Object.entries(budget).filter(
+  ([label, value]) => value > 0
+);
+
+const expenseLabels = filteredBudgetEntries.map(
+  ([label]) => labelMapping[label] || label // Use custom label or fallback to original
+);
+const expenseValues = filteredBudgetEntries.map(([_, value]) => value);
+
+const expensesChartData = {
+  labels: expenseLabels,
+  datasets: [
+    {
+      data: expenseValues,
+      backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56",
+        "#4BC0C0",
+        "#9966FF",
+        "#FF9F40",
+      ],
+      borderColor: "#fff",
+      borderWidth: 1,
+    },
+  ],
+};
+
+// Filter and map the debt entries
+const filteredDebtEntries = Object.entries(debt).filter(
+  ([label, debtInfo]) => debtInfo.amount > 0
+);
+
+const debtLabels = filteredDebtEntries.map(
+  ([label]) => labelMapping[label] || label // Use custom label or fallback to original
+);
+const debtValues = filteredDebtEntries.map(([_, debtInfo]) => debtInfo.amount);
+
+const debtChartData = {
+  labels: debtLabels,
+  datasets: [
+    {
+      data: debtValues,
+      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
+      borderColor: "#fff",
+      borderWidth: 1,
+    },
+  ],
+};
+
+
+  const chartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#fff", // Set legend text color to white
+        },
       },
-    ],
-  };
-
-  // Debt pie chart data
-  const debtLabels = Object.keys(debt);
-  const debtValues = Object.values(debt)
-    .map((d) => d.amount)
-    .filter((amount) => amount > 0);
-
-  const debtChartData = {
-    labels: debtLabels,
-    datasets: [
-      {
-        data: debtValues,
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
-        borderColor: "#fff",
-        borderWidth: 1,
+      tooltip: {
+        titleColor: "#fff", // Set tooltip title color to white
+        bodyColor: "#fff", // Set tooltip body color to white
       },
-    ],
+    },
   };
 
   useEffect(() => {
@@ -118,14 +159,20 @@ const Dashboard = () => {
               />
 
               {expenseValues.length > 0 && (
-                <div className="bg-card-background p-4 rounded-lg shadow-md border border-card-border w-72">
-                  <Pie data={expensesChartData} />
+                <div className="bg-n-7 p-4 border border-white shadow-md rounded-lg w-72 text-white">
+                  <p className="text-white text-xl text-center pb-2">
+                    Expenses Breakdown
+                  </p>
+                  <Pie data={expensesChartData} options={chartOptions} />
                 </div>
               )}
 
               {debtValues.length > 0 && (
-                <div className="bg-card-background p-4 rounded-lg shadow-md border border-card-border w-72">
-                  <Pie data={debtChartData} />
+                <div className="bg-n-7 p-4 border border-white shadow-md rounded-lg w-72 text-white">
+                  <p className="text-white text-xl text-center pb-2">
+                    Debt Breakdown
+                  </p>
+                  <Pie data={debtChartData} options={chartOptions} />
                 </div>
               )}
             </div>

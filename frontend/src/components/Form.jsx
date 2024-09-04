@@ -317,7 +317,7 @@ const Form = () => {
                   <FormInput
                     id="healthCare"
                     label="Health Care (Insurance, Medication)"
-                    name="budget.heathCare"
+                    name="budget.healthCare"
                     value={formData.budget.heathCare}
                     onChange={handleChange}
                   />
@@ -393,6 +393,7 @@ const Form = () => {
                         name="debt.medical.rate"
                         value={formData.debt.medical.rate}
                         onChange={handleChange}
+                        isRate={true}
                       />
                       <FormInput
                         id="studentInterestRate"
@@ -400,6 +401,7 @@ const Form = () => {
                         name="debt.student.rate"
                         value={formData.debt.student.rate}
                         onChange={handleChange}
+                        isRate={true}
                       />
                       <FormInput
                         id="creditInterestRate"
@@ -407,6 +409,7 @@ const Form = () => {
                         name="debt.credit.rate"
                         value={formData.debt.credit.rate}
                         onChange={handleChange}
+                        isRate={true}
                       />
                       <FormInput
                         id="otherInterestRate"
@@ -414,6 +417,7 @@ const Form = () => {
                         name="debt.other.rate"
                         value={formData.debt.other.rate}
                         onChange={handleChange}
+                        isRate={true}
                       />
                     </div>
                   </div>

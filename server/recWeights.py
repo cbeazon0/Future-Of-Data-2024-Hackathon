@@ -85,10 +85,10 @@ def generate_chart_data(data):
     
     # Convert to int and account for blanks and -1's
     def cleanData(value):
-        if value == "-1" or value == "":
+        if value == "-1" or value == "" or value == -1:
             return 0
         else:
-            return int(value)        
+            return float(value)       
     
     income = cleanData(data["base"]["income"])
     expenses = cleanData(data["base"]["expenses"])
@@ -162,10 +162,10 @@ def weight(data):
     
     # Convert to int and account for blanks and -1's
     def cleanData(value):
-        if value == "-1" or value == "":
+        if value == "-1" or value == "" or value == -1:
             return 0
         else:
-            return int(value) 
+            return float(value)
         
     budget1weight = 0 # 50/30/20 - catchall for budgeting
     budget2weight = 0 # significant debt
