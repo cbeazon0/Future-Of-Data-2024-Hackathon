@@ -24,7 +24,7 @@ const Hero = () => {
               Relaxed Finance
             </h1>
             <p className="mt-6 text-lg leading-8 text-white">
-              The easiest way to explore your finances and get your financial options.
+              The easiest way to explore your finances and learn about your financial options.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
