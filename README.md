@@ -16,11 +16,13 @@ As the name suggests, this app is designed to give you financial peace-of-mind. 
 
 ## How we built it 
 
-Python,  
+Python, React, Flask, TailwindCSS
+
+The frontend was built using React and TailwindCSS. We used a Flask backend that controls most of the data manipulation and calculations.
 
 ## Challenges we ran into 
 
-One of the biggest challenges we ran into was 
+The main difficulty we faced as a team was our collective lack of React and Flask knowledge. We went into the project wanting to learn React and Flask, so on top of creating a great product, we had to learn these technologies as well. Along with this, ensuring we provided an objective look at the user's finances without incorporating any opinions or information that was not backed by credible sources was a challenge. Ultimately, we are extremely happy with what we were able to create and believe this would be a great product to continue building from.
 
 ## Accomplishments that we're proud of 
 Several of us had limited experience with backend development and were happy to create a successful system that felt expansive and cohesively developed. Others of us were able to generate an efficient and visually appealing front end, of which they had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve their financial literacy and work toawrds a brighter future.
@@ -29,10 +31,9 @@ Several of us had limited experience with backend development and were happy to 
 ## What we learned 
 Throughout this project, each team member honed their webpage development skills, contributing to the creation of a dynamic and interactive webpage. This process not only involved technical development but also extensive research into various aspects of personal finance, including credit card debt relief, student loans, medical debt, budgeting, retirement planning, and saving strategies. By leveraging our foundational knowledge of finance, we aimed to develop a practical tool that not only helps people like us better understand these critical topics but also connects them with valuable resources. Our goal is to provide accessible and effective financial guidance to anyone seeking to improve their financial literacy.
 
- 
+
 
 ## What's next for Relaxed Finance? 
 
-We will 100% continue to work on this after this, regardless of what place we end up in. 
-
- 
+We will 100% continue to work on this after this, regardless of what place we end up in, in the hackathon.
+We would love to explore investing and savings accounts and add tailored recommendations for these areas of finance.
