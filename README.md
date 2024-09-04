@@ -23,7 +23,7 @@ The frontend was built using React and TailwindCSS. We used a Flask backend that
 The main difficulty we faced as a team was our collective lack of React and Flask knowledge. We went into the project wanting to learn React and Flask, so on top of creating a great product, we had to learn these technologies as well. Along with this, ensuring we provided an objective look at the user's finances without incorporating any opinions or information that was not backed by credible sources was a challenge. Ultimately, we are extremely happy with what we were able to create and believe this would be a great product to continue building from.
 
 ## Accomplishments that we're proud of 
-Several of us had limited experience with backend development and were happy to create a successful system that felt expansive and cohesively developed. Others of us were able to generate an efficient and visually appealing front end, of which they had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve their financial literacy and work toawrds a brighter future.
+Several of us had limited experience with backend development and were happy to create a successful system that felt expansive and cohesively developed. Others of us were able to generate an efficient and visually appealing front end, of which they had limited background.  As a team, we're proud to take this first step towards a product that people like ourselves can use to improve their financial literacy and work towards a brighter future.
  
 
 ## What we learned 
