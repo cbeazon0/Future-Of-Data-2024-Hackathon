@@ -6,7 +6,7 @@ Relaxed Finance was designed to give you the data, goals, and peer-reviewed sour
 
 ## Inspiration 
 
-We just wanted to make a resource that we wished we had. 
+We wanted to make a resource that we wished we had. 
 
 ## What it does 
 
